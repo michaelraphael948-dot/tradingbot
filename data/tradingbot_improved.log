@@ -1,0 +1,1263 @@
+2025-08-28 13:47:16,335 [INFO] tradingBot_improved: DEBUG: TELEGRAM_TOKEN=7793768064...
+2025-08-28 13:47:16,336 [INFO] tradingBot_improved: DEBUG: BYBIT_API_KEY=NraqDv...
+2025-08-28 13:47:16,339 [INFO] tradingBot_improved: Scheduler thread started
+2025-08-28 13:47:16,339 [INFO] tradingBot_improved: Starting supervisor loop (auto-restart).
+2025-08-28 13:47:17,797 [INFO] tradingBot_improved: Launching Application.run_polling()
+2025-08-28 13:47:18,438 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getMe "HTTP/1.1 200 OK"
+2025-08-28 13:47:18,609 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/deleteWebhook "HTTP/1.1 200 OK"
+2025-08-28 13:47:18,612 [INFO] tradingBot_improved: Application started
+2025-08-28 13:47:29,161 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:47:38,576 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:47:39,165 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:47:41,609 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:47:41,836 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:47:44,121 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:47:44,124 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:47:44,127 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp5xglvabu.
+2025-08-28 13:47:44,129 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:47:44,141 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpshb4efne.
+2025-08-28 13:47:44,142 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpshb4efne
+2025-08-28 13:47:45,431 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmp5xglvabu/index.html
+2025-08-28 13:47:45,484 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:47:48,796 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:47:52,778 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:47:52,785 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:47:52,786 [INFO] tradingBot_improved: Got 6C66
+2025-08-28 13:47:52,786 [INFO] tradingBot_improved: Processing FARTCOINUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:47:52,786 [INFO] tradingBot_improved: Sending big command for FARTCOINUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:47:53,387 [INFO] tradingBot_improved: Sent big command for FARTCOINUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:47:53,391 [INFO] tradingBot_improved: Reloading tab 6C66 before return.
+2025-08-28 13:47:55,620 [INFO] tradingBot_improved: Putting tab 6C66 back (queue size: 0).
+2025-08-28 13:47:55,628 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:47:55,629 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:47:55,632 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:47:55,633 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:47:55,635 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:47:55,635 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:47:55,636 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:47:55,701 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:47:55,739 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:47:55,742 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:47:55,745 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:47:55,749 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:47:57,100 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:47:57,101 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:47:58,955 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:47:59,004 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:48:02,643 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:02,722 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:04,020 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:48:04,021 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:48:04,023 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpeux0pdm8.
+2025-08-28 13:48:04,027 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:48:04,032 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmps6eecmtr.
+2025-08-28 13:48:04,035 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmps6eecmtr
+2025-08-28 13:48:06,886 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpeux0pdm8/index.html
+2025-08-28 13:48:06,987 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:48:09,129 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:48:12,479 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:48:12,482 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:48:12,521 [INFO] tradingBot_improved: Got A0BC
+2025-08-28 13:48:12,533 [INFO] tradingBot_improved: Processing FBUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:48:12,538 [INFO] tradingBot_improved: Sending big command for FBUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:48:13,607 [INFO] tradingBot_improved: Sent big command for FBUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:48:13,611 [INFO] tradingBot_improved: Reloading tab A0BC before return.
+2025-08-28 13:48:15,770 [INFO] tradingBot_improved: Putting tab A0BC back (queue size: 0).
+2025-08-28 13:48:15,771 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:48:15,800 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:48:15,803 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:15,804 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:15,808 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:48:15,809 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:48:15,809 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:48:15,868 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:15,870 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:15,870 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:48:15,871 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:48:15,871 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:48:17,943 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:17,944 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:19,324 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:48:19,524 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:48:22,975 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:48:22,979 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:48:22,983 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp_g379fh6.
+2025-08-28 13:48:22,988 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:48:23,009 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpdomx9eya.
+2025-08-28 13:48:23,010 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpdomx9eya
+2025-08-28 13:48:24,559 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmp_g379fh6/index.html
+2025-08-28 13:48:24,560 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:48:29,690 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:48:29,731 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:48:29,733 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:48:29,736 [INFO] tradingBot_improved: Got E443
+2025-08-28 13:48:29,740 [INFO] tradingBot_improved: Processing FHEUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:48:29,741 [INFO] tradingBot_improved: Sending big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:48:30,273 [INFO] tradingBot_improved: Sent big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:48:30,275 [INFO] tradingBot_improved: Reloading tab E443 before return.
+2025-08-28 13:48:31,906 [INFO] tradingBot_improved: Putting tab E443 back (queue size: 0).
+2025-08-28 13:48:31,907 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:48:31,907 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:48:31,910 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:31,911 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:31,911 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:48:31,912 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:48:31,912 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:48:31,939 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:31,947 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:31,950 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:48:31,951 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:48:31,952 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:48:32,495 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:32,496 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:34,373 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:48:36,667 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:36,668 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:36,670 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:36,671 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:36,717 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:48:36,718 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:48:36,719 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpytn2bwo0.
+2025-08-28 13:48:36,721 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:48:36,723 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp59dzojtf.
+2025-08-28 13:48:36,723 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp59dzojtf
+2025-08-28 13:48:38,338 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpytn2bwo0/index.html
+2025-08-28 13:48:38,338 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:48:39,966 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:48:50,127 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:48:51,139 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:48:51,141 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:48:51,141 [INFO] tradingBot_improved: Got 05AC
+2025-08-28 13:48:51,141 [INFO] tradingBot_improved: Processing FIDAUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:48:51,141 [INFO] tradingBot_improved: Sending big command for FIDAUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:48:51,628 [INFO] tradingBot_improved: Sent big command for FIDAUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:48:51,631 [INFO] tradingBot_improved: Reloading tab 05AC before return.
+2025-08-28 13:48:53,102 [INFO] tradingBot_improved: Putting tab 05AC back (queue size: 0).
+2025-08-28 13:48:53,178 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:48:53,242 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:48:53,333 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:53,341 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:53,343 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:48:53,344 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:48:53,344 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:48:53,407 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:53,409 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:53,409 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:48:53,409 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:48:53,410 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:48:54,105 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:48:54,109 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:48:56,572 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:48:59,245 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:48:59,248 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:48:59,249 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpa12403um.
+2025-08-28 13:48:59,251 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:48:59,253 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpyca0m4c4.
+2025-08-28 13:48:59,254 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpyca0m4c4
+2025-08-28 13:49:00,312 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpa12403um/index.html
+2025-08-28 13:49:00,354 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:49:09,721 [ERROR] tradingBot_improved: Error while getting Updates: httpx.ConnectError: 
+2025-08-28 13:49:09,722 [ERROR] tradingBot_improved: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 156, in _connect
+    stream = await stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 67, in start_tls
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: 
+2025-08-28 13:49:10,363 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:49:10,365 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:49:10,365 [INFO] tradingBot_improved: Got 5693
+2025-08-28 13:49:10,365 [INFO] tradingBot_improved: Processing FILUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:49:10,366 [INFO] tradingBot_improved: Sending big command for FILUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:49:11,010 [INFO] tradingBot_improved: Sent big command for FILUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:49:11,014 [INFO] tradingBot_improved: Reloading tab 5693 before return.
+2025-08-28 13:49:12,509 [INFO] tradingBot_improved: Putting tab 5693 back (queue size: 0).
+2025-08-28 13:49:12,509 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:49:12,509 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:49:12,511 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:49:12,512 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:49:12,514 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:49:12,515 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:49:12,515 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:49:12,572 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:49:12,573 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:49:12,573 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:49:12,574 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:49:12,574 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:49:12,996 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:49:12,998 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:49:14,385 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:49:16,397 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:49:16,397 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:49:16,398 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpkhn5_m46.
+2025-08-28 13:49:16,401 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:49:16,403 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpad5gnq0z.
+2025-08-28 13:49:16,403 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpad5gnq0z
+2025-08-28 13:49:17,241 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpkhn5_m46/index.html
+2025-08-28 13:49:17,299 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:49:20,918 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:49:20,919 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:49:20,922 [INFO] tradingBot_improved: Got FC6C
+2025-08-28 13:49:20,925 [INFO] tradingBot_improved: Processing FIOUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:49:20,927 [INFO] tradingBot_improved: Sending big command for FIOUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:49:21,206 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:49:21,442 [INFO] tradingBot_improved: Sent big command for FIOUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:49:21,446 [INFO] tradingBot_improved: Reloading tab FC6C before return.
+2025-08-28 13:49:22,985 [INFO] tradingBot_improved: Putting tab FC6C back (queue size: 0).
+2025-08-28 13:49:22,998 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:49:23,008 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:49:23,015 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:49:23,017 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:49:23,017 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:49:23,021 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:49:23,022 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:49:23,027 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:49:23,078 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:49:23,106 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:49:23,110 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:49:23,122 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:49:23,123 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:49:23,124 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:49:23,125 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:49:23,125 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:49:24,393 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:49:24,394 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:49:26,470 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:49:31,390 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:49:41,590 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:49:51,754 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:50:01,934 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:50:12,234 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:50:22,397 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:50:32,698 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:50:38,757 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:50:39,328 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:50:48,995 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:50:50,653 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:50:51,278 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:50:59,641 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:51:00,212 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:51:09,817 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:51:19,982 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:51:25,426 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:51:26,070 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:51:35,662 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:51:45,897 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:51:56,218 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:52:00,896 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:52:02,872 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:52:12,893 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:52:22,568 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:52:23,188 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:52:27,134 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:52:27,412 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:52:30,573 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:52:30,757 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:52:40,746 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:52:49,028 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:52:49,608 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:52:59,255 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:53:09,495 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:53:19,744 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:53:29,978 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:53:32,102 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:53:32,925 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:53:34,806 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:53:34,809 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:53:34,812 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpyo6kt9nu.
+2025-08-28 13:53:34,822 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:53:34,825 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpr44l9afj.
+2025-08-28 13:53:34,828 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpr44l9afj
+2025-08-28 13:53:35,902 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpyo6kt9nu/index.html
+2025-08-28 13:53:35,903 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:53:39,063 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:53:39,064 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:53:39,066 [INFO] tradingBot_improved: Got C2F3
+2025-08-28 13:53:39,071 [INFO] tradingBot_improved: Processing FHEUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:53:39,079 [INFO] tradingBot_improved: Sending big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:53:39,795 [INFO] tradingBot_improved: Sent big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:53:39,798 [INFO] tradingBot_improved: Reloading tab C2F3 before return.
+2025-08-28 13:53:41,420 [INFO] tradingBot_improved: Putting tab C2F3 back (queue size: 0).
+2025-08-28 13:53:41,421 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:53:41,424 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:53:41,427 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:53:41,428 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:53:41,428 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:53:41,429 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:53:41,429 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:53:41,485 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:53:41,487 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:53:41,519 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:53:41,536 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:53:41,537 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:53:42,041 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:53:42,042 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:53:42,273 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:53:43,755 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:53:52,448 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:54:02,597 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:54:12,764 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:54:22,931 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:54:33,092 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:54:43,256 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:54:53,425 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:55:03,731 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:55:13,907 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:55:19,781 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:55:20,398 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:55:29,973 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:55:40,200 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:55:42,566 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:55:43,147 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:55:45,117 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:55:45,119 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:55:45,271 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:55:45,272 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:55:45,273 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpt_2ll8lg.
+2025-08-28 13:55:45,276 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:55:45,278 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmphwfft7mv.
+2025-08-28 13:55:45,279 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmphwfft7mv
+2025-08-28 13:55:46,248 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpt_2ll8lg/index.html
+2025-08-28 13:55:46,248 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:55:49,830 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:55:49,831 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:55:49,831 [INFO] tradingBot_improved: Got C8FB
+2025-08-28 13:55:49,832 [INFO] tradingBot_improved: Processing FHEUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:55:49,832 [INFO] tradingBot_improved: Sending big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:55:50,361 [INFO] tradingBot_improved: Sent big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:55:50,363 [INFO] tradingBot_improved: Reloading tab C8FB before return.
+2025-08-28 13:55:51,679 [INFO] tradingBot_improved: Putting tab C8FB back (queue size: 0).
+2025-08-28 13:55:51,679 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:55:51,679 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:55:51,680 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:55:51,681 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:55:51,681 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:55:51,682 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:55:51,682 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:55:51,723 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:55:51,724 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:55:51,724 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:55:51,724 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:55:51,725 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:55:52,758 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:55:53,277 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:55:53,289 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:55:54,653 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:56:02,949 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:56:13,122 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:56:23,287 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:56:33,650 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:56:43,822 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:56:45,482 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:56:46,501 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:56:55,729 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:57:05,895 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:57:16,211 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:57:19,938 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:57:20,609 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:57:30,117 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:57:40,304 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:57:43,327 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:57:43,979 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:57:53,570 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:58:03,745 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:58:13,918 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:58:20,391 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:58:20,948 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:58:22,240 [INFO] tradingBot_improved: Chromium init'ed with kwargs {}
+2025-08-28 13:58:22,243 [INFO] tradingBot_improved: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:58:22,245 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp5fskh8s1.
+2025-08-28 13:58:22,251 [INFO] tradingBot_improved: Opening browser.
+2025-08-28 13:58:22,255 [INFO] tradingBot_improved: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp5bz4u9q1.
+2025-08-28 13:58:22,258 [INFO] tradingBot_improved: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp5bz4u9q1
+2025-08-28 13:58:23,478 [INFO] tradingBot_improved: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmp5fskh8s1/index.html
+2025-08-28 13:58:23,479 [INFO] tradingBot_improved: Waiting on all navigates
+2025-08-28 13:58:26,564 [INFO] tradingBot_improved: All navigates done, putting them all in queue.
+2025-08-28 13:58:26,574 [INFO] tradingBot_improved: Getting tab from queue (has 1)
+2025-08-28 13:58:26,578 [INFO] tradingBot_improved: Got 7EED
+2025-08-28 13:58:26,579 [INFO] tradingBot_improved: Processing BTCUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:58:26,579 [INFO] tradingBot_improved: Sending big command for BTCUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:58:27,168 [INFO] tradingBot_improved: Sent big command for BTCUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:58:27,172 [INFO] tradingBot_improved: Reloading tab 7EED before return.
+2025-08-28 13:58:28,609 [INFO] tradingBot_improved: Putting tab 7EED back (queue size: 0).
+2025-08-28 13:58:28,612 [INFO] tradingBot_improved: Waiting for all cleanups to finish.
+2025-08-28 13:58:28,612 [INFO] tradingBot_improved: Exiting Kaleido
+2025-08-28 13:58:28,618 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:58:28,633 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:58:28,634 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:58:28,635 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:58:28,635 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:58:28,641 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:58:28,644 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:58:28,668 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:58:28,672 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:58:28,673 [INFO] tradingBot_improved: Cancelling tasks.
+2025-08-28 13:58:28,673 [INFO] tradingBot_improved: Exiting Kaleido/Choreo
+2025-08-28 13:58:28,674 [INFO] tradingBot_improved: Closing browser.
+2025-08-28 13:58:29,086 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:58:29,087 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 13:58:30,559 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:58:31,100 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:58:40,721 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:58:50,951 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:59:01,177 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:59:11,344 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:59:21,651 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:59:31,865 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:59:42,047 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:59:52,815 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:00:04,033 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:00:14,192 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:00:24,488 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:00:34,742 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:00:44,907 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:00:55,192 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:01:05,408 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:01:15,586 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:01:25,815 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:01:35,969 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:01:46,177 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:01:56,359 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:02:06,534 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:02:06,612 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 14:02:06,612 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 14:02:06,612 [INFO] tradingBot_improved: TemporaryDirectory.cleanup() worked.
+2025-08-28 14:02:06,612 [INFO] tradingBot_improved: shutil.rmtree worked.
+2025-08-28 14:02:16,789 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:02:26,933 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:02:37,118 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:02:47,290 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:02:57,866 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:03:09,472 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:03:19,699 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:03:29,883 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:03:40,200 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:03:50,430 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:04:00,676 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:04:10,911 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:04:21,073 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:04:31,245 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:04:41,629 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:04:51,797 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:05:02,429 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:05:12,590 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:05:22,747 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:05:33,149 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:05:43,311 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:05:53,476 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:06:03,629 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:06:13,789 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:06:24,734 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:06:34,958 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:06:45,180 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:06:55,391 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:07:05,630 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:07:15,877 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:07:26,105 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:07:36,267 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:07:46,429 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:07:56,675 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:08:07,071 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:08:17,286 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:08:27,451 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:08:38,310 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:08:48,785 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:08:58,943 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:09:09,190 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:09:19,367 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:09:29,520 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:09:39,682 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:09:49,848 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:10:00,034 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:10:10,203 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:10:20,353 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:10:30,601 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:10:41,144 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:10:51,473 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:11:01,679 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:11:11,862 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:11:22,263 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:11:32,423 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:11:42,657 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:11:52,967 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:12:03,312 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:12:13,469 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:12:23,631 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:12:33,792 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:12:44,178 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:12:54,335 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:13:04,502 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:13:14,741 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:13:25,131 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:13:35,299 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:13:45,616 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:13:55,851 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:14:06,037 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:14:16,194 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:14:26,381 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:14:36,556 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:14:46,709 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:14:56,885 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:15:07,062 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:15:17,225 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:15:27,413 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:15:37,591 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:15:47,770 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:15:57,918 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:16:08,350 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:16:19,036 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:16:29,365 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:16:40,469 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:16:50,657 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:17:00,878 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:17:11,045 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:17:21,242 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:17:33,360 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:17:43,812 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:17:53,980 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:18:04,150 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:18:15,170 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:18:25,359 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:18:35,744 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:18:45,959 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:18:56,127 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:19:06,285 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:19:16,507 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:19:26,672 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:19:36,828 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:19:46,973 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:19:57,133 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:20:07,288 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:20:17,468 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:20:27,632 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:20:37,856 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:20:48,024 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:20:58,478 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:21:08,823 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:21:19,052 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:21:29,213 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:21:39,539 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:21:49,704 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:22:00,019 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:22:10,613 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:22:20,786 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:22:31,069 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:22:41,255 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:22:51,413 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:23:01,558 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:23:11,728 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:23:21,944 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:23:32,169 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:23:42,327 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:23:52,487 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:24:02,636 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:24:12,814 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:24:23,092 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:24:33,294 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:24:43,501 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:24:53,687 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:25:03,848 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:25:14,014 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:25:24,178 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:25:34,409 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:25:44,568 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:25:54,734 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:26:05,172 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:26:15,370 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:29:30,297 [ERROR] tradingBot_improved: Error while getting Updates: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:30,299 [ERROR] tradingBot_improved: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:31,566 [ERROR] tradingBot_improved: Error while getting Updates: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:31,566 [ERROR] tradingBot_improved: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:33,090 [ERROR] tradingBot_improved: Error while getting Updates: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:33,090 [ERROR] tradingBot_improved: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:35,352 [ERROR] tradingBot_improved: Error while getting Updates: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:35,353 [ERROR] tradingBot_improved: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:38,758 [ERROR] tradingBot_improved: Error while getting Updates: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:38,760 [ERROR] tradingBot_improved: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:43,827 [ERROR] tradingBot_improved: Error while getting Updates: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:29:43,829 [ERROR] tradingBot_improved: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2025-08-28 14:30:01,942 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:30:12,262 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:30:22,512 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:30:32,783 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:30:42,775 [INFO] tradingBot_improved: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 14:30:42,775 [INFO] tradingBot_improved: Application is stopping. This might take a moment.
+2025-08-28 14:30:42,775 [INFO] tradingBot_improved: Application.stop() complete
+2025-08-28 14:30:42,775 [INFO] tradingBot_improved: Application.run_polling() finished normally; exiting.

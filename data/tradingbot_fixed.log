@@ -1,0 +1,1666 @@
+2025-08-28 13:00:42,728 [INFO] tradingBot_fixed: DEBUG: TELEGRAM_TOKEN=7793768064...
+2025-08-28 13:00:42,728 [INFO] tradingBot_fixed: DEBUG: BYBIT_API_KEY=NraqDv...
+2025-08-28 13:00:42,744 [INFO] tradingBot_fixed: Scheduler thread started
+2025-08-28 13:00:42,744 [INFO] tradingBot_fixed: Starting supervisor loop (auto-restart).
+2025-08-28 13:00:44,140 [INFO] tradingBot_fixed: Launching Application.run_polling()
+2025-08-28 13:00:46,875 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getMe "HTTP/1.1 200 OK"
+2025-08-28 13:00:47,063 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/deleteWebhook "HTTP/1.1 200 OK"
+2025-08-28 13:00:47,063 [INFO] tradingBot_fixed: Application started
+2025-08-28 13:00:57,669 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:00:57,887 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:01:03,233 [ERROR] tradingBot_fixed: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_application.py", line 1234, in process_update
+    await coroutine
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 653, in cmd_list
+    await update.message.reply_text(f"📅 Today's letter: {letter}\nFetching Bybit futures symbols...")
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_message.py", line 1094, in reply_text
+    return await self.get_bot().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 2624, in send_message
+    return await super().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 846, in send_message
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 522, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 703, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 285, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2025-08-28 13:01:08,097 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:01:18,253 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:01:28,428 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:01:38,600 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:01:48,788 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:02:00,979 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:02:11,279 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:02:21,492 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:02:31,634 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:02:41,819 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:02:52,263 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:03:02,505 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:03:12,676 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:03:22,853 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:03:33,076 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:03:43,250 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:03:53,482 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:04:03,656 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:04:13,884 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:04:24,054 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:04:34,355 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:04:44,595 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:04:54,834 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:05:05,018 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:05:15,198 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:05:25,377 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:05:35,559 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:05:45,716 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:05:55,878 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:06:06,039 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:06:16,252 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:06:26,415 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:06:36,571 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:06:47,071 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:06:57,559 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:07:07,715 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:07:17,885 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:07:28,111 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:07:38,294 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:07:48,489 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:07:58,668 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:08:09,038 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:08:19,219 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:08:22,031 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:08:22,642 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:08:27,103 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:08:27,487 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:08:37,452 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:08:47,650 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:08:50,292 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:08:50,922 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:08:55,507 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:08:55,647 [ERROR] tradingBot_fixed: Plotly to_image failed: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+choreographer.browsers.chromium.ChromeNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 380, in to_image
+    img_bytes = kaleido.calc_fig_sync(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 145, in calc_fig_sync
+    return _async_thread_run(calc_fig, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 138, in _async_thread_run
+    raise res
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 129, in run
+    q.put(asyncio.run(func(*args, **kwargs)))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 54, in calc_fig
+    async with Kaleido(**kopts) as k:
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\kaleido.py", line 128, in __init__
+    raise ChromeNotFoundError(
+choreographer.browsers.chromium.ChromeNotFoundError: Kaleido v1 and later requires Chrome to be installed. To install Chrome, use the CLI command `kaleido_get_chrome`, or from Python, use either `kaleido.get_chrome()` or `kaleido.get_chrome_sync()`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 515, in plotly_candles_with_zones
+    img_bytes = pio.to_image(fig, format="png", width=1400, height=800, scale=1)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 392, in to_image
+    raise RuntimeError(PLOTLY_GET_CHROME_ERROR_MSG)
+RuntimeError: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+
+2025-08-28 13:08:55,679 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:08:55,850 [ERROR] tradingBot_fixed: Plotly fallback failed: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+choreographer.browsers.chromium.ChromeNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 380, in to_image
+    img_bytes = kaleido.calc_fig_sync(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 145, in calc_fig_sync
+    return _async_thread_run(calc_fig, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 138, in _async_thread_run
+    raise res
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 129, in run
+    q.put(asyncio.run(func(*args, **kwargs)))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 54, in calc_fig
+    async with Kaleido(**kopts) as k:
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\kaleido.py", line 128, in __init__
+    raise ChromeNotFoundError(
+choreographer.browsers.chromium.ChromeNotFoundError: Kaleido v1 and later requires Chrome to be installed. To install Chrome, use the CLI command `kaleido_get_chrome`, or from Python, use either `kaleido.get_chrome()` or `kaleido.get_chrome_sync()`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 524, in plotly_candles_with_zones
+    fig.write_image(tmpfn, width=1400, height=800)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\basedatatypes.py", line 3895, in write_image
+    return pio.write_image(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 510, in write_image
+    img_data = to_image(
+               ^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 392, in to_image
+    raise RuntimeError(PLOTLY_GET_CHROME_ERROR_MSG)
+RuntimeError: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+
+2025-08-28 13:08:55,866 [ERROR] tradingBot_fixed: Plotting failure for ETHUSDT: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+choreographer.browsers.chromium.ChromeNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 380, in to_image
+    img_bytes = kaleido.calc_fig_sync(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 145, in calc_fig_sync
+    return _async_thread_run(calc_fig, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 138, in _async_thread_run
+    raise res
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 129, in run
+    q.put(asyncio.run(func(*args, **kwargs)))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 54, in calc_fig
+    async with Kaleido(**kopts) as k:
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\kaleido.py", line 128, in __init__
+    raise ChromeNotFoundError(
+choreographer.browsers.chromium.ChromeNotFoundError: Kaleido v1 and later requires Chrome to be installed. To install Chrome, use the CLI command `kaleido_get_chrome`, or from Python, use either `kaleido.get_chrome()` or `kaleido.get_chrome_sync()`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 590, in _sync_plot_bytes_safe
+    buf = plotly_candles_with_zones(df, symbol, interval, lookback=lookback, vol_multiplier=vol_multiplier)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 524, in plotly_candles_with_zones
+    fig.write_image(tmpfn, width=1400, height=800)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\basedatatypes.py", line 3895, in write_image
+    return pio.write_image(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 510, in write_image
+    img_data = to_image(
+               ^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 392, in to_image
+    raise RuntimeError(PLOTLY_GET_CHROME_ERROR_MSG)
+RuntimeError: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+
+2025-08-28 13:08:55,882 [ERROR] tradingBot_fixed: /chart error: Plotting failed for ETHUSDT: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+choreographer.browsers.chromium.ChromeNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 380, in to_image
+    img_bytes = kaleido.calc_fig_sync(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 145, in calc_fig_sync
+    return _async_thread_run(calc_fig, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 138, in _async_thread_run
+    raise res
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 129, in run
+    q.put(asyncio.run(func(*args, **kwargs)))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 54, in calc_fig
+    async with Kaleido(**kopts) as k:
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\kaleido.py", line 128, in __init__
+    raise ChromeNotFoundError(
+choreographer.browsers.chromium.ChromeNotFoundError: Kaleido v1 and later requires Chrome to be installed. To install Chrome, use the CLI command `kaleido_get_chrome`, or from Python, use either `kaleido.get_chrome()` or `kaleido.get_chrome_sync()`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 590, in _sync_plot_bytes_safe
+    buf = plotly_candles_with_zones(df, symbol, interval, lookback=lookback, vol_multiplier=vol_multiplier)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 524, in plotly_candles_with_zones
+    fig.write_image(tmpfn, width=1400, height=800)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\basedatatypes.py", line 3895, in write_image
+    return pio.write_image(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 510, in write_image
+    img_data = to_image(
+               ^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 392, in to_image
+    raise RuntimeError(PLOTLY_GET_CHROME_ERROR_MSG)
+RuntimeError: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 707, in cmd_chart
+    img = await loop.run_in_executor(None, _sync_plot_bytes_safe, symbol, interval, 20, 1.5)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 594, in _sync_plot_bytes_safe
+    raise RuntimeError(f"Plotting failed for {symbol}: {e}")
+RuntimeError: Plotting failed for ETHUSDT: 
+
+Kaleido requires Google Chrome to be installed.
+
+Either download and install Chrome yourself following Google's instructions for your operating system,
+or install it from your terminal by running:
+
+    $ plotly_get_chrome
+
+
+2025-08-28 13:08:56,100 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:09:00,452 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:09:10,604 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:09:20,752 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:09:31,157 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:09:42,076 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:09:52,225 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:10:02,897 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:10:13,059 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:10:23,248 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:10:33,427 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:10:43,598 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:10:52,913 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:10:52,913 [INFO] tradingBot_fixed: Application is stopping. This might take a moment.
+2025-08-28 13:10:52,913 [INFO] tradingBot_fixed: Application.stop() complete
+2025-08-28 13:10:52,929 [INFO] tradingBot_fixed: Application.run_polling() finished normally; exiting.
+2025-08-28 13:23:47,860 [INFO] tradingBot_fixed: DEBUG: TELEGRAM_TOKEN=7793768064...
+2025-08-28 13:23:47,860 [INFO] tradingBot_fixed: DEBUG: BYBIT_API_KEY=NraqDv...
+2025-08-28 13:23:47,860 [INFO] tradingBot_fixed: Scheduler thread started
+2025-08-28 13:23:47,860 [INFO] tradingBot_fixed: Starting supervisor loop (auto-restart).
+2025-08-28 13:23:49,235 [INFO] tradingBot_fixed: Launching Application.run_polling()
+2025-08-28 13:23:50,173 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getMe "HTTP/1.1 200 OK"
+2025-08-28 13:23:50,329 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/deleteWebhook "HTTP/1.1 200 OK"
+2025-08-28 13:23:50,345 [INFO] tradingBot_fixed: Application started
+2025-08-28 13:24:01,746 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:24:11,948 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:24:22,240 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:24:32,512 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:24:43,711 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:24:53,897 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:25:04,063 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:25:05,124 [ERROR] tradingBot_fixed: Error while getting Updates: httpx.ReadError: 
+2025-08-28 13:25:05,124 [ERROR] tradingBot_fixed: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ReadError: 
+2025-08-28 13:25:07,059 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:25:07,705 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:25:12,567 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:25:12,567 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:25:12,567 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpvh_d3vs2.
+2025-08-28 13:25:12,567 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:25:12,567 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp6gx6klhe.
+2025-08-28 13:25:12,567 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp6gx6klhe
+2025-08-28 13:25:14,035 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpvh_d3vs2/index.html
+2025-08-28 13:25:14,051 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:25:16,986 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:25:16,994 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:25:16,996 [INFO] tradingBot_fixed: Got 6FA2
+2025-08-28 13:25:16,997 [INFO] tradingBot_fixed: Processing ETHUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:25:16,997 [INFO] tradingBot_fixed: Sending big command for ETHUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:25:17,232 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:25:17,621 [INFO] tradingBot_fixed: Sent big command for ETHUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:25:17,621 [INFO] tradingBot_fixed: Reloading tab 6FA2 before return.
+2025-08-28 13:25:18,034 [INFO] tradingBot_fixed: Putting tab 6FA2 back (queue size: 0).
+2025-08-28 13:25:18,034 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:25:18,035 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:25:18,037 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:25:18,038 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:25:18,041 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:25:18,041 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:25:18,047 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:25:18,062 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:25:18,065 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:25:18,066 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:25:18,066 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:25:18,067 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:25:18,419 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:25:18,419 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:25:19,950 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:25:27,447 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:25:37,597 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:25:47,774 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:25:58,017 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:26:00,840 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:26:01,527 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:26:01,742 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:26:02,097 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:26:03,312 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:03,313 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:04,128 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:26:04,128 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:26:04,128 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpl7dtprop.
+2025-08-28 13:26:04,128 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:26:04,128 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpurmmc4nq.
+2025-08-28 13:26:04,128 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpurmmc4nq
+2025-08-28 13:26:05,086 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpl7dtprop/index.html
+2025-08-28 13:26:05,086 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:26:08,472 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:26:08,474 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:26:08,522 [INFO] tradingBot_fixed: Got C6DA
+2025-08-28 13:26:08,530 [INFO] tradingBot_fixed: Processing FARTCOINUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:26:08,533 [INFO] tradingBot_fixed: Sending big command for FARTCOINUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:26:09,169 [INFO] tradingBot_fixed: Sent big command for FARTCOINUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:26:09,169 [INFO] tradingBot_fixed: Reloading tab C6DA before return.
+2025-08-28 13:26:10,670 [INFO] tradingBot_fixed: Putting tab C6DA back (queue size: 0).
+2025-08-28 13:26:10,671 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:26:10,671 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:26:10,673 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:10,679 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:10,679 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:26:10,679 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:26:10,680 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:26:10,689 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:10,703 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:10,716 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:26:10,740 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:26:10,748 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:26:11,020 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:26:11,708 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:11,708 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:14,793 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:26:17,339 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:17,339 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:18,636 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:26:18,636 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:26:18,636 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpli51_i5g.
+2025-08-28 13:26:18,636 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:26:18,636 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpm4q2kten.
+2025-08-28 13:26:18,636 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpm4q2kten
+2025-08-28 13:26:19,563 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpli51_i5g/index.html
+2025-08-28 13:26:19,563 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:26:21,182 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:26:26,028 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:26:26,030 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:26:26,030 [INFO] tradingBot_fixed: Got 8A73
+2025-08-28 13:26:26,030 [INFO] tradingBot_fixed: Processing FBUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:26:26,031 [INFO] tradingBot_fixed: Sending big command for FBUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:26:26,731 [INFO] tradingBot_fixed: Sent big command for FBUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:26:26,746 [INFO] tradingBot_fixed: Reloading tab 8A73 before return.
+2025-08-28 13:26:28,250 [INFO] tradingBot_fixed: Putting tab 8A73 back (queue size: 0).
+2025-08-28 13:26:28,251 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:26:28,251 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:26:28,252 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:28,254 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:28,254 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:26:28,254 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:26:28,255 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:26:28,306 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:28,306 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:28,306 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:26:28,306 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:26:28,306 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:26:29,179 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:29,179 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:31,476 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:26:31,523 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:26:33,663 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:33,664 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:33,897 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:26:33,899 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:26:33,903 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp1p7l_xs5.
+2025-08-28 13:26:33,905 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:26:33,907 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp5k1_4gt_.
+2025-08-28 13:26:33,907 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp5k1_4gt_
+2025-08-28 13:26:34,830 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmp1p7l_xs5/index.html
+2025-08-28 13:26:34,860 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:26:40,316 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:26:40,328 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:26:40,332 [INFO] tradingBot_fixed: Got 37B5
+2025-08-28 13:26:40,332 [INFO] tradingBot_fixed: Processing FHEUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:26:40,333 [INFO] tradingBot_fixed: Sending big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:26:40,868 [INFO] tradingBot_fixed: Sent big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:26:40,868 [INFO] tradingBot_fixed: Reloading tab 37B5 before return.
+2025-08-28 13:26:41,680 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:26:42,370 [INFO] tradingBot_fixed: Putting tab 37B5 back (queue size: 0).
+2025-08-28 13:26:42,370 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:26:42,371 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:26:42,372 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:42,373 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:42,374 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:26:42,374 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:26:42,375 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:26:42,388 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:42,391 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:42,394 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:26:42,400 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:26:42,403 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:26:42,768 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:42,768 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:44,413 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:26:47,070 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:47,070 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:47,402 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:26:47,402 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:26:47,402 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpu7vm_73e.
+2025-08-28 13:26:47,402 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:26:47,402 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpovb06a6r.
+2025-08-28 13:26:47,402 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpovb06a6r
+2025-08-28 13:26:48,655 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpu7vm_73e/index.html
+2025-08-28 13:26:48,671 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:26:51,844 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:26:52,000 [ERROR] tradingBot_fixed: Error while getting Updates: httpx.ReadError: 
+2025-08-28 13:26:52,001 [ERROR] tradingBot_fixed: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ReadError: 
+2025-08-28 13:26:52,895 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:26:52,897 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:26:52,898 [INFO] tradingBot_fixed: Got 1B08
+2025-08-28 13:26:52,898 [INFO] tradingBot_fixed: Processing FIDAUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:26:52,898 [INFO] tradingBot_fixed: Sending big command for FIDAUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:26:54,022 [INFO] tradingBot_fixed: Sent big command for FIDAUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:26:54,141 [INFO] tradingBot_fixed: Reloading tab 1B08 before return.
+2025-08-28 13:26:55,998 [INFO] tradingBot_fixed: Putting tab 1B08 back (queue size: 0).
+2025-08-28 13:26:55,999 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:26:55,999 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:26:56,004 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:56,007 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:56,007 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:26:56,007 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:26:56,008 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:26:56,019 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:56,021 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:26:56,022 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:26:56,024 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:26:56,026 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:26:57,128 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:26:57,137 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:00,127 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:27:02,448 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:27:02,456 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:02,757 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:27:02,759 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:27:02,760 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp5wlhcly2.
+2025-08-28 13:27:02,765 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:27:02,767 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpmaz0iti8.
+2025-08-28 13:27:02,767 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpmaz0iti8
+2025-08-28 13:27:03,718 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmp5wlhcly2/index.html
+2025-08-28 13:27:03,718 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:27:04,385 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:27:06,948 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:27:06,951 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:27:06,951 [INFO] tradingBot_fixed: Got D5D3
+2025-08-28 13:27:06,952 [INFO] tradingBot_fixed: Processing FILUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:27:06,952 [INFO] tradingBot_fixed: Sending big command for FILUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:27:07,583 [INFO] tradingBot_fixed: Sent big command for FILUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:27:07,583 [INFO] tradingBot_fixed: Reloading tab D5D3 before return.
+2025-08-28 13:27:09,295 [INFO] tradingBot_fixed: Putting tab D5D3 back (queue size: 0).
+2025-08-28 13:27:09,298 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:27:09,298 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:27:09,300 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:27:09,301 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:09,303 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:27:09,303 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:27:09,303 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:27:09,312 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:27:09,346 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:09,348 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:27:09,364 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:27:09,372 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:27:10,941 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:27:10,941 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:12,474 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:27:14,576 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:27:15,247 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:27:15,263 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:16,189 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:27:16,189 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:27:16,189 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp27xhry3e.
+2025-08-28 13:27:16,189 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:27:16,204 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp54s86ol2.
+2025-08-28 13:27:16,204 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp54s86ol2
+2025-08-28 13:27:17,063 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmp27xhry3e/index.html
+2025-08-28 13:27:17,110 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:27:25,083 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:27:29,501 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:27:29,504 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:27:29,504 [INFO] tradingBot_fixed: Got CE45
+2025-08-28 13:27:29,505 [INFO] tradingBot_fixed: Processing FIOUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:27:29,505 [INFO] tradingBot_fixed: Sending big command for FIOUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:27:30,101 [INFO] tradingBot_fixed: Sent big command for FIOUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:27:30,101 [INFO] tradingBot_fixed: Reloading tab CE45 before return.
+2025-08-28 13:27:31,451 [INFO] tradingBot_fixed: Putting tab CE45 back (queue size: 0).
+2025-08-28 13:27:31,452 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:27:31,452 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:27:31,455 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:27:31,459 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:31,459 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:27:31,466 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:27:31,466 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:27:31,472 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:27:31,485 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:31,489 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:27:31,489 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:27:31,490 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:27:31,781 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:27:31,781 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:27:34,358 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:27:35,608 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:27:46,051 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:27:56,756 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:28:06,939 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:28:17,325 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:28:28,847 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:28:39,098 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:28:49,267 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:28:56,138 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:28:56,841 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:28:57,135 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendMessage "HTTP/1.1 200 OK"
+2025-08-28 13:28:59,480 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:28:59,485 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:29:00,318 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:29:00,321 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:29:00,323 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpgiwmz843.
+2025-08-28 13:29:00,325 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:29:00,328 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpgtvx0e42.
+2025-08-28 13:29:00,328 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpgtvx0e42
+2025-08-28 13:29:01,484 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpgiwmz843/index.html
+2025-08-28 13:29:01,500 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:29:06,419 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:29:11,599 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:29:11,611 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:29:11,614 [INFO] tradingBot_fixed: Got 5BE6
+2025-08-28 13:29:11,615 [INFO] tradingBot_fixed: Processing FARTCOINUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:29:11,615 [INFO] tradingBot_fixed: Sending big command for FARTCOINUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:29:12,259 [INFO] tradingBot_fixed: Sent big command for FARTCOINUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:29:12,259 [INFO] tradingBot_fixed: Reloading tab 5BE6 before return.
+2025-08-28 13:29:13,922 [INFO] tradingBot_fixed: Putting tab 5BE6 back (queue size: 0).
+2025-08-28 13:29:13,938 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:29:13,938 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:29:13,940 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:29:13,941 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:29:13,942 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:29:13,942 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:29:13,942 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:29:13,969 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:29:13,981 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:29:13,981 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:29:13,981 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:29:13,981 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:29:16,261 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:29:16,272 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:29:16,751 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:29:17,631 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:29:27,475 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:29:27,624 [ERROR] tradingBot_fixed: Error while getting Updates: httpx.ReadError: 
+2025-08-28 13:29:27,627 [ERROR] tradingBot_fixed: No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Program Files\Python311\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 292, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ReadError: 
+2025-08-28 13:29:37,967 [WARNING] tradingBot_fixed: GET https://api.bybit.com/v5/market/kline failed on attempt 1/4: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2025-08-28 13:29:39,389 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:29:41,967 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:29:41,967 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:29:41,967 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp52zpwdxz.
+2025-08-28 13:29:41,982 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:29:41,982 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpao6sbko7.
+2025-08-28 13:29:41,982 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpao6sbko7
+2025-08-28 13:29:42,716 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmp52zpwdxz/index.html
+2025-08-28 13:29:42,748 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:29:46,278 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:29:46,280 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:29:46,280 [INFO] tradingBot_fixed: Got 2DB2
+2025-08-28 13:29:46,280 [INFO] tradingBot_fixed: Processing FBUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:29:46,281 [INFO] tradingBot_fixed: Sending big command for FBUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:29:46,882 [INFO] tradingBot_fixed: Sent big command for FBUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:29:46,882 [INFO] tradingBot_fixed: Reloading tab 2DB2 before return.
+2025-08-28 13:29:48,225 [INFO] tradingBot_fixed: Putting tab 2DB2 back (queue size: 0).
+2025-08-28 13:29:48,229 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:29:48,230 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:29:48,231 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:29:48,232 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:29:48,232 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:29:48,232 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:29:48,232 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:29:48,240 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:29:48,241 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:29:48,244 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:29:48,244 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:29:48,253 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:29:48,562 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:29:48,562 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:29:49,546 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:29:49,843 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:29:51,803 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:29:51,819 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:29:51,866 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:29:51,866 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:29:51,866 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpdh5stdbi.
+2025-08-28 13:29:51,866 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:29:51,881 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmppfto39bv.
+2025-08-28 13:29:51,881 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmppfto39bv
+2025-08-28 13:29:53,103 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpdh5stdbi/index.html
+2025-08-28 13:29:53,244 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:30:00,763 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:30:02,077 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:30:02,092 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:30:02,097 [INFO] tradingBot_fixed: Got B388
+2025-08-28 13:30:02,098 [INFO] tradingBot_fixed: Processing FHEUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:30:02,100 [INFO] tradingBot_fixed: Sending big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:02,852 [INFO] tradingBot_fixed: Sent big command for FHEUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:02,933 [INFO] tradingBot_fixed: Reloading tab B388 before return.
+2025-08-28 13:30:03,416 [INFO] tradingBot_fixed: Putting tab B388 back (queue size: 0).
+2025-08-28 13:30:03,459 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:30:03,473 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:30:03,530 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:03,576 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:03,597 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:03,630 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:03,651 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:03,756 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:03,825 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:03,875 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:03,934 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:03,986 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:06,113 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:06,115 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:07,184 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:30:10,253 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:10,258 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:10,339 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:30:10,339 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:30:10,341 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpsnfn_q8l.
+2025-08-28 13:30:10,343 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:30:10,349 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpxfr6t4ag.
+2025-08-28 13:30:10,350 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpxfr6t4ag
+2025-08-28 13:30:10,957 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:30:11,356 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpsnfn_q8l/index.html
+2025-08-28 13:30:11,357 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:30:15,073 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:30:15,074 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:30:15,074 [INFO] tradingBot_fixed: Got E0B7
+2025-08-28 13:30:15,075 [INFO] tradingBot_fixed: Processing FIDAUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:30:15,075 [INFO] tradingBot_fixed: Sending big command for FIDAUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:15,775 [INFO] tradingBot_fixed: Sent big command for FIDAUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:15,778 [INFO] tradingBot_fixed: Reloading tab E0B7 before return.
+2025-08-28 13:30:17,544 [INFO] tradingBot_fixed: Putting tab E0B7 back (queue size: 0).
+2025-08-28 13:30:17,545 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:30:17,553 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:30:17,556 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:17,558 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:17,558 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:17,558 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:17,559 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:17,574 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:17,586 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:17,588 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:17,590 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:17,592 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:18,450 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:18,451 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:19,930 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:30:21,220 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:30:21,962 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:21,962 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:22,025 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:30:22,025 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:30:22,040 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmptz82igk2.
+2025-08-28 13:30:22,040 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:30:22,040 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp5g2_eh1q.
+2025-08-28 13:30:22,040 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp5g2_eh1q
+2025-08-28 13:30:23,206 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmptz82igk2/index.html
+2025-08-28 13:30:23,207 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:30:27,717 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:30:27,724 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:30:27,725 [INFO] tradingBot_fixed: Got E974
+2025-08-28 13:30:27,725 [INFO] tradingBot_fixed: Processing FILUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:30:27,725 [INFO] tradingBot_fixed: Sending big command for FILUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:28,259 [INFO] tradingBot_fixed: Sent big command for FILUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:28,259 [INFO] tradingBot_fixed: Reloading tab E974 before return.
+2025-08-28 13:30:29,628 [INFO] tradingBot_fixed: Putting tab E974 back (queue size: 0).
+2025-08-28 13:30:29,628 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:30:29,628 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:30:29,630 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:29,634 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:29,634 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:29,634 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:29,634 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:29,659 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:29,664 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:29,665 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:29,666 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:29,673 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:29,992 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:29,992 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:31,460 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:30:31,570 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:30:33,311 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:33,311 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:33,686 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:30:33,686 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:30:33,686 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmptp7xklk0.
+2025-08-28 13:30:33,686 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:30:33,686 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp15b563tk.
+2025-08-28 13:30:33,686 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp15b563tk
+2025-08-28 13:30:34,658 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmptp7xklk0/index.html
+2025-08-28 13:30:34,658 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:30:37,854 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:30:37,867 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:30:37,868 [INFO] tradingBot_fixed: Got DCF9
+2025-08-28 13:30:37,868 [INFO] tradingBot_fixed: Processing FIOUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:30:37,869 [INFO] tradingBot_fixed: Sending big command for FIOUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:38,441 [INFO] tradingBot_fixed: Sent big command for FIOUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:38,441 [INFO] tradingBot_fixed: Reloading tab DCF9 before return.
+2025-08-28 13:30:39,901 [INFO] tradingBot_fixed: Putting tab DCF9 back (queue size: 0).
+2025-08-28 13:30:39,902 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:30:39,902 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:30:39,904 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:39,905 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:39,905 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:39,905 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:39,905 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:39,938 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:39,938 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:39,969 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:40,000 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:40,000 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:40,578 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:40,578 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:41,829 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:30:42,032 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:30:43,151 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:43,151 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:43,385 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:30:43,385 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:30:43,385 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp7w3j0vf7.
+2025-08-28 13:30:43,385 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:30:43,385 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpjfxepxs7.
+2025-08-28 13:30:43,385 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpjfxepxs7
+2025-08-28 13:30:44,310 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmp7w3j0vf7/index.html
+2025-08-28 13:30:44,311 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:30:48,544 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:30:48,545 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:30:48,546 [INFO] tradingBot_fixed: Got FD7B
+2025-08-28 13:30:48,550 [INFO] tradingBot_fixed: Processing FISUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:30:48,552 [INFO] tradingBot_fixed: Sending big command for FISUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:49,059 [INFO] tradingBot_fixed: Sent big command for FISUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:30:49,075 [INFO] tradingBot_fixed: Reloading tab FD7B before return.
+2025-08-28 13:30:50,475 [INFO] tradingBot_fixed: Putting tab FD7B back (queue size: 0).
+2025-08-28 13:30:50,476 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:30:50,476 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:30:50,494 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:50,503 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:50,504 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:50,509 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:50,516 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:50,671 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:50,701 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:50,706 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:30:50,716 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:30:50,717 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:30:51,150 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:51,179 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:52,073 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:30:52,425 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:30:54,517 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:30:54,548 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:30:54,735 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:30:54,735 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:30:54,735 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpakqwohtb.
+2025-08-28 13:30:54,751 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:30:54,751 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpwjn7onqt.
+2025-08-28 13:30:54,751 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpwjn7onqt
+2025-08-28 13:30:55,807 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpakqwohtb/index.html
+2025-08-28 13:30:55,808 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:31:01,153 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:31:01,170 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:31:01,189 [INFO] tradingBot_fixed: Got 82AF
+2025-08-28 13:31:01,226 [INFO] tradingBot_fixed: Processing FLMUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:31:01,237 [INFO] tradingBot_fixed: Sending big command for FLMUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:31:02,103 [INFO] tradingBot_fixed: Sent big command for FLMUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:31:02,122 [INFO] tradingBot_fixed: Reloading tab 82AF before return.
+2025-08-28 13:31:02,267 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:31:04,184 [INFO] tradingBot_fixed: Putting tab 82AF back (queue size: 0).
+2025-08-28 13:31:04,190 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:31:04,253 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:31:04,283 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:31:04,287 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:31:04,290 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:31:04,291 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:31:04,291 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:31:04,300 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:31:04,340 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:31:04,375 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:31:04,387 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:31:04,389 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:31:07,394 [WARNING] tradingBot_fixed: Resorting to unclean kill browser.
+2025-08-28 13:31:08,215 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:31:08,219 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:31:09,530 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:31:12,358 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:31:12,464 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:31:12,521 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:31:13,781 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:31:13,818 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:31:13,862 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpbp5z06xr.
+2025-08-28 13:31:13,919 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:31:13,963 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpr0l_26gw.
+2025-08-28 13:31:13,981 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpr0l_26gw
+2025-08-28 13:31:16,102 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpbp5z06xr/index.html
+2025-08-28 13:31:16,119 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:31:21,488 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:31:21,508 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:31:21,539 [INFO] tradingBot_fixed: Got CE56
+2025-08-28 13:31:21,571 [INFO] tradingBot_fixed: Processing FLOCKUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:31:21,585 [INFO] tradingBot_fixed: Sending big command for FLOCKUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:31:22,467 [INFO] tradingBot_fixed: Sent big command for FLOCKUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:31:22,487 [INFO] tradingBot_fixed: Reloading tab CE56 before return.
+2025-08-28 13:31:22,954 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:31:24,630 [INFO] tradingBot_fixed: Putting tab CE56 back (queue size: 0).
+2025-08-28 13:31:24,630 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:31:24,634 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:31:24,672 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:31:24,673 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:31:24,714 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:31:24,850 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:31:24,854 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:31:24,925 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:31:24,970 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:31:24,995 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:31:25,026 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:31:25,039 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:31:28,065 [WARNING] tradingBot_fixed: Resorting to unclean kill browser.
+2025-08-28 13:31:33,529 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:31:43,888 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:31:50,715 [ERROR] tradingBot_fixed: Plotly to_image failed: Couldn't close or kill browser subprocess
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\tradingbot.py", line 515, in plotly_candles_with_zones
+    img_bytes = pio.to_image(fig, format="png", width=1400, height=800, scale=1)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\plotly\io\_kaleido.py", line 380, in to_image
+    img_bytes = kaleido.calc_fig_sync(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 145, in calc_fig_sync
+    return _async_thread_run(calc_fig, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 138, in _async_thread_run
+    raise res
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 129, in run
+    q.put(asyncio.run(func(*args, **kwargs)))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\__init__.py", line 54, in calc_fig
+    async with Kaleido(**kopts) as k:
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\kaleido.py", line 76, in __aexit__
+    return await super().__aexit__(exc_type, exc_value, exc_tb)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\browser_async.py", line 249, in __aexit__
+    await self.close()
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\kaleido\kaleido.py", line 69, in close
+    return await super().close()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\browser_async.py", line 228, in close
+    await self._close()
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\browser_async.py", line 216, in _close
+    raise RuntimeError("Couldn't close or kill browser subprocess")
+RuntimeError: Couldn't close or kill browser subprocess
+2025-08-28 13:31:50,762 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:31:50,763 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:31:50,764 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpi_pss71s.
+2025-08-28 13:31:50,767 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:31:50,770 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp5v7ib89d.
+2025-08-28 13:31:50,771 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp5v7ib89d
+2025-08-28 13:31:54,132 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:31:56,825 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpi_pss71s/index.html
+2025-08-28 13:31:56,889 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:32:04,518 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:32:04,803 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:32:04,803 [INFO] tradingBot_fixed: Got F3CA
+2025-08-28 13:32:04,803 [INFO] tradingBot_fixed: Processing FLOCKUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:32:04,803 [INFO] tradingBot_fixed: Sending big command for FLOCKUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:32:04,544 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:32:06,383 [INFO] tradingBot_fixed: Sent big command for FLOCKUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:32:06,386 [INFO] tradingBot_fixed: Reloading tab F3CA before return.
+2025-08-28 13:32:09,698 [INFO] tradingBot_fixed: Putting tab F3CA back (queue size: 0).
+2025-08-28 13:32:09,698 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:32:09,707 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:32:09,734 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:09,747 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:09,749 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:32:09,754 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:32:09,770 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:32:09,829 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:09,902 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:09,930 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:32:09,973 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:32:09,997 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:32:13,236 [WARNING] tradingBot_fixed: Resorting to unclean kill browser.
+2025-08-28 13:32:14,971 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:14,973 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:16,093 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:32:16,955 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:32:18,803 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:18,804 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:18,804 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:18,804 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:19,101 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:32:19,102 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:32:19,104 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpw1ks58i_.
+2025-08-28 13:32:19,106 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:32:19,111 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp6twanzaz.
+2025-08-28 13:32:19,112 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp6twanzaz
+2025-08-28 13:32:20,579 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpw1ks58i_/index.html
+2025-08-28 13:32:20,612 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:32:26,285 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:32:29,145 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:32:29,147 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:32:29,166 [INFO] tradingBot_fixed: Got DE92
+2025-08-28 13:32:29,196 [INFO] tradingBot_fixed: Processing FLOWUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:32:29,249 [INFO] tradingBot_fixed: Sending big command for FLOWUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:32:29,969 [INFO] tradingBot_fixed: Sent big command for FLOWUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:32:29,969 [INFO] tradingBot_fixed: Reloading tab DE92 before return.
+2025-08-28 13:32:31,590 [INFO] tradingBot_fixed: Putting tab DE92 back (queue size: 0).
+2025-08-28 13:32:31,591 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:32:31,604 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:32:31,608 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:31,613 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:31,614 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:32:31,615 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:32:31,615 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:32:31,628 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:31,638 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:31,642 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:32:31,645 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:32:31,645 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:32:32,361 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:32,361 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:33,875 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:32:34,935 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:34,935 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:35,948 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:32:35,948 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:32:35,948 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpea5pbxuq.
+2025-08-28 13:32:35,948 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:32:35,948 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpj6fecl2l.
+2025-08-28 13:32:35,948 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpj6fecl2l
+2025-08-28 13:32:36,526 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:32:36,952 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpea5pbxuq/index.html
+2025-08-28 13:32:36,952 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:32:40,661 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:32:40,663 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:32:40,663 [INFO] tradingBot_fixed: Got 9CA6
+2025-08-28 13:32:40,664 [INFO] tradingBot_fixed: Processing FLRUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:32:40,664 [INFO] tradingBot_fixed: Sending big command for FLRUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:32:41,525 [INFO] tradingBot_fixed: Sent big command for FLRUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:32:41,541 [INFO] tradingBot_fixed: Reloading tab 9CA6 before return.
+2025-08-28 13:32:43,533 [INFO] tradingBot_fixed: Putting tab 9CA6 back (queue size: 0).
+2025-08-28 13:32:43,537 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:32:43,538 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:32:43,540 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:43,545 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:43,546 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:32:43,546 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:32:43,546 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:32:43,553 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:43,568 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:43,578 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:32:43,578 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:32:43,579 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:32:43,987 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:43,988 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:45,094 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:32:45,204 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/getUpdates "HTTP/1.1 200 OK"
+2025-08-28 13:32:45,219 [INFO] tradingBot_fixed: Application is stopping. This might take a moment.
+2025-08-28 13:32:46,605 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:46,605 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:46,777 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:32:46,777 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:32:46,777 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpk8hpzsnj.
+2025-08-28 13:32:46,777 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:32:46,777 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmp3dopd8xj.
+2025-08-28 13:32:46,777 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmp3dopd8xj
+2025-08-28 13:32:48,003 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpk8hpzsnj/index.html
+2025-08-28 13:32:48,004 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:32:51,477 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:32:51,479 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:32:51,479 [INFO] tradingBot_fixed: Got 2550
+2025-08-28 13:32:51,480 [INFO] tradingBot_fixed: Processing FLUXUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:32:51,480 [INFO] tradingBot_fixed: Sending big command for FLUXUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:32:52,003 [INFO] tradingBot_fixed: Sent big command for FLUXUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:32:52,003 [INFO] tradingBot_fixed: Reloading tab 2550 before return.
+2025-08-28 13:32:54,038 [INFO] tradingBot_fixed: Putting tab 2550 back (queue size: 0).
+2025-08-28 13:32:54,039 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:32:54,056 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:32:54,063 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:54,067 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:54,068 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:32:54,069 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:32:54,069 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:32:54,098 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:54,116 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:54,140 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:32:54,140 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:32:54,140 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:32:54,838 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:54,844 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:56,092 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:32:58,410 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:32:58,411 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:32:58,644 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:32:58,646 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:32:58,648 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpzimi86it.
+2025-08-28 13:32:58,651 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:32:58,652 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmphhg1nayw.
+2025-08-28 13:32:58,653 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmphhg1nayw
+2025-08-28 13:32:59,729 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpzimi86it/index.html
+2025-08-28 13:32:59,730 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:33:04,410 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:33:04,413 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:33:04,413 [INFO] tradingBot_fixed: Got 7390
+2025-08-28 13:33:04,414 [INFO] tradingBot_fixed: Processing FORMUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:33:04,414 [INFO] tradingBot_fixed: Sending big command for FORMUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:33:05,117 [INFO] tradingBot_fixed: Sent big command for FORMUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:33:05,117 [INFO] tradingBot_fixed: Reloading tab 7390 before return.
+2025-08-28 13:33:06,899 [INFO] tradingBot_fixed: Putting tab 7390 back (queue size: 0).
+2025-08-28 13:33:06,920 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:33:06,922 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:33:06,925 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:06,927 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:06,928 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:33:06,928 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:33:06,929 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:33:06,999 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:07,007 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:07,007 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:33:07,007 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:33:07,007 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:33:08,602 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:08,618 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:09,849 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:33:11,391 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:11,391 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:11,688 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:33:11,688 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:33:11,688 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpnvk8_qub.
+2025-08-28 13:33:11,688 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:33:11,688 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmph0geq41h.
+2025-08-28 13:33:11,688 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmph0geq41h
+2025-08-28 13:33:12,683 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpnvk8_qub/index.html
+2025-08-28 13:33:12,683 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:33:15,118 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:33:15,120 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:33:15,121 [INFO] tradingBot_fixed: Got 2A4F
+2025-08-28 13:33:15,121 [INFO] tradingBot_fixed: Processing FORTHUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:33:15,122 [INFO] tradingBot_fixed: Sending big command for FORTHUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:33:15,802 [INFO] tradingBot_fixed: Sent big command for FORTHUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:33:15,802 [INFO] tradingBot_fixed: Reloading tab 2A4F before return.
+2025-08-28 13:33:17,385 [INFO] tradingBot_fixed: Putting tab 2A4F back (queue size: 0).
+2025-08-28 13:33:17,387 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:33:17,387 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:33:17,389 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:17,393 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:17,394 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:33:17,394 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:33:17,395 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:33:17,446 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:17,449 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:17,462 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:33:17,463 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:33:17,464 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:33:17,796 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:17,796 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:19,276 [INFO] tradingBot_fixed: HTTP Request: POST https://api.telegram.org/bot7793768064:AAEHbRn06OVIQKCsmnnYSr5Fk3b0XjyPEUg/sendPhoto "HTTP/1.1 200 OK"
+2025-08-28 13:33:20,651 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:20,651 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:20,776 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:20,776 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:21,338 [INFO] tradingBot_fixed: Chromium init'ed with kwargs {}
+2025-08-28 13:33:21,338 [INFO] tradingBot_fixed: Found chromium path: C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\cli\browser_exe\chrome-win64\chrome.exe
+2025-08-28 13:33:21,338 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpqpb58esn.
+2025-08-28 13:33:21,338 [INFO] tradingBot_fixed: Opening browser.
+2025-08-28 13:33:21,338 [INFO] tradingBot_fixed: Temp directory created: C:\Users\BETTER~1\AppData\Local\Temp\tmpe2sq9cr8.
+2025-08-28 13:33:21,338 [INFO] tradingBot_fixed: Temporary directory at: C:\Users\BETTER~1\AppData\Local\Temp\tmpe2sq9cr8
+2025-08-28 13:33:22,593 [INFO] tradingBot_fixed: Conforming 1 to file:///C:/Users/BETTER~1/AppData/Local/Temp/tmpqpb58esn/index.html
+2025-08-28 13:33:22,713 [INFO] tradingBot_fixed: Waiting on all navigates
+2025-08-28 13:33:25,219 [INFO] tradingBot_fixed: KeyboardInterrupt received; exiting supervisor.
+2025-08-28 13:33:26,668 [ERROR] tradingBot_fixed: Error in run_read_loop.
+Traceback (most recent call last):
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\_brokers\_async.py", line 132, in read_loop
+    responses = await loop.run_in_executor(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 830, in run_in_executor
+    executor.submit(func, *args), loop=self)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\thread.py", line 167, in submit
+    raise RuntimeError('cannot schedule new futures after shutdown')
+RuntimeError: cannot schedule new futures after shutdown
+2025-08-28 13:33:26,675 [ERROR] tradingBot_fixed: Exception in callback Broker.run_read_loop.<locals>.check_read_loop_error(<Task finishe...er shutdown')>) at C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\_brokers\_async.py:112
+handle: <Handle Broker.run_read_loop.<locals>.check_read_loop_error(<Task finishe...er shutdown')>) at C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\_brokers\_async.py:112>
+Traceback (most recent call last):
+  File "C:\Program Files\Python311\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\_brokers\_async.py", line 127, in check_read_loop_error
+    raise e
+  File "C:\Users\BETTER NIGERIA\OneDrive\Desktop\Tradingbot\venv\Lib\site-packages\choreographer\_brokers\_async.py", line 132, in read_loop
+    responses = await loop.run_in_executor(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\asyncio\base_events.py", line 830, in run_in_executor
+    executor.submit(func, *args), loop=self)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\concurrent\futures\thread.py", line 167, in submit
+    raise RuntimeError('cannot schedule new futures after shutdown')
+RuntimeError: cannot schedule new futures after shutdown
+2025-08-28 13:33:26,683 [INFO] tradingBot_fixed: All navigates done, putting them all in queue.
+2025-08-28 13:33:26,685 [INFO] tradingBot_fixed: Getting tab from queue (has 1)
+2025-08-28 13:33:26,686 [INFO] tradingBot_fixed: Got BA78
+2025-08-28 13:33:26,687 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:26,688 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:26,688 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:33:26,688 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:33:26,689 [INFO] tradingBot_fixed: Closing browser.
+2025-08-28 13:33:26,689 [INFO] tradingBot_fixed: Processing FRAGUSDT__1h__SupplyDemand_zones.png
+2025-08-28 13:33:26,689 [INFO] tradingBot_fixed: Sending big command for FRAGUSDT__1h__SupplyDemand_zones.png.
+2025-08-28 13:33:26,710 [INFO] tradingBot_fixed: Waiting for all cleanups to finish.
+2025-08-28 13:33:26,711 [INFO] tradingBot_fixed: Exiting Kaleido
+2025-08-28 13:33:26,711 [INFO] tradingBot_fixed: TemporaryDirectory.cleanup() worked.
+2025-08-28 13:33:26,712 [INFO] tradingBot_fixed: shutil.rmtree worked.
+2025-08-28 13:33:26,712 [INFO] tradingBot_fixed: Cancelling tasks.
+2025-08-28 13:33:26,712 [INFO] tradingBot_fixed: Exiting Kaleido/Choreo
+2025-08-28 13:33:26,713 [INFO] tradingBot_fixed: Closing browser.

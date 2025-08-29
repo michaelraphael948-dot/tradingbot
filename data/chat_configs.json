@@ -1,0 +1,18 @@
+{
+  "7236376533": {
+    "interval": "4h",
+    "hour": 9,
+    "suffix": "USDT",
+    "min_candles": 50,
+    "max_charts": 6,
+    "paused": false,
+    "custom_letters": null,
+    "forced_letter": "A",
+    "last_run": null,
+    "test_pattern": [
+      20,
+      20,
+      20
+    ]
+  }
+}

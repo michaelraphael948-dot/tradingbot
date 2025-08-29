@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 worker: python tradingbot.py
-=======
-worker: python tradingbot.py
->>>>>>> 0d31a13991dfa4f080de40a7bad2237ddd76d4cc

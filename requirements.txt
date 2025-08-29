@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 python-telegram-bot==20.3
 pybit==5.6.1
 plotly==5.22.0
@@ -6,3 +7,13 @@ pandas==2.2.2
 numpy==1.26.4
 schedule==1.2.1
 requests==2.32.3
+=======
+python-telegram-bot==20.3
+pybit==5.6.1
+plotly==5.22.0
+kaleido==0.2.1
+pandas==2.2.2
+numpy==1.26.4
+schedule==1.2.1
+requests==2.32.3
+>>>>>>> 0d31a13991dfa4f080de40a7bad2237ddd76d4cc

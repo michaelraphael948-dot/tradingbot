@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "tradingbot"
+version = "0.1.0"
+description = "Telegram trading bot for Bybit futures"
+authors = ["Your Name <youremail@example.com>"]
+
+[tool.poetry.dependencies]
+python = "3.11.*"
+python-telegram-bot = "20.3"
+pandas = "2.2.2"
+numpy = "1.26.4"
+plotly = "5.22.0"
+requests = "2.31.0"
+yfinance = "0.2.40"
+apscheduler = "3.10.4"
+kaleido = "0.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,535 +1,825 @@
 #!/usr/bin/env python3
 """
-tradingbot.py
-Single-file Telegram trading-chart bot with many commands:
-- /start, /help, /status, /list, /chart, /analyze, /price, /setinterval, /sethour, /setletter,
-  /setletters, /setsuffix, /setmin, /setmax, /settestpattern, /pause, /resume, /test, /diag,
-  /export, /import, /allletters
-Uses Bybit public API when available, falls back to Binance public API.
-Generates Plotly candlestick charts and returns PNGs using kaleido.
-Persists per-chat config to chat_config.json.
+tradingbot.py  -- Super-long giant fixed file (based on last working version)
+Features:
+- Bybit v5 klines (live candlesticks)
+- Plotly (light theme) PNG export via kaleido (Chrome required)
+- Mathematically-detected Supply & Demand zones (volume spike + pivot + confirming move)
+- Shaded rectangles + small markers labeling S/D zones
+- normalize_interval() supports many user inputs for /setinterval and /chart
+- All requested commands: /start, /help, /status, /list, /chart, /analyze,
+  /price, /setinterval, /sethour, /setletter, /setletters, /setsuffix,
+  /setmin, /setmax, /settestpattern, /pause, /resume, /test, /export, /import,
+  /allletters, /diag
+- Per-chat persistent JSON config (./data/chat_configs.json)
+- Scheduler daily auto-send at configured UTC hour
+- Supervisor loop auto-restarts the bot on crash
+- Defensive HTTP with retries, caching, fallback intervals
+- Logging to console + file
 """
 
 import os
+import sys
+import time
 import json
-import math
-import asyncio
 import logging
+import threading
 import traceback
-from datetime import datetime, timedelta, timezone
-from functools import partial
-from typing import List, Dict, Optional, Any
+import re
+from io import BytesIO
+from datetime import datetime, timedelta
+from typing import Any, Dict, List, Tuple, Optional
 
 import requests
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.triggers.cron import CronTrigger
-from telegram import Update, InputFile
+import plotly.io as pio
+
+# Ensure kaleido/static image support installed in your venv:
+# pip install plotly[kaleido] kaleido
+# And ensure Google Chrome/Chromium is installed (kaleido needs chrome)
+# If missing, run: plotly_get_chrome
+
+from dotenv import load_dotenv
+from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-# load .env if present
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except Exception:
-    pass
+# -------------------------
+# Load environment
+# -------------------------
+load_dotenv()
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "").strip()
+BYBIT_API_KEY = os.getenv("BYBIT_API_KEY", "").strip()  # optional
+BYBIT_API_SECRET = os.getenv("BYBIT_API_SECRET", "").strip()  # optional
 
-# CONFIG / ENV
-TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
-BYBIT_API_KEY = os.environ.get("BYBIT_API_KEY", "")
-BYBIT_API_SECRET = os.environ.get("BYBIT_API_SECRET", "")
-CHAT_CONFIG_PATH = "chat_config.json"
-DEFAULT_INTERVAL = "1h"
-DEFAULT_HOUR_UTC = 12
-DEFAULT_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-DEFAULT_SUFFIX = "USDT"
-DEFAULT_MIN_CANDLES = 50
-DEFAULT_MAX_CHARTS = 20
-DEFAULT_TEST_PATTERN = [20, 20, 20]
-
-# logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-log = logging.getLogger("tradingBot_superlong")
-
-# ensure token present
+# Interactive prompt for TELEGRAM_TOKEN if missing (convenience)
+_token_pattern = re.compile(r"^\d{6,}:[A-Za-z0-9_\-]{20,}$")
 if not TELEGRAM_TOKEN:
-    log.error("TELEGRAM_TOKEN env var is required. Exiting.")
-    raise SystemExit("TELEGRAM_TOKEN env var is required.")
+    print("\nNo TELEGRAM_TOKEN found in .env. Paste it now (or Ctrl-C to abort):")
+    try:
+        raw = input("TELEGRAM_TOKEN: ").strip()
+        if _token_pattern.match(raw):
+            TELEGRAM_TOKEN = raw
+        else:
+            print("Token format looks invalid. Exiting.")
+            sys.exit(1)
+    except KeyboardInterrupt:
+        sys.exit(1)
 
-# simple file-backed chat config store
-def load_configs() -> Dict[str, Any]:
-    if os.path.exists(CHAT_CONFIG_PATH):
-        try:
-            with open(CHAT_CONFIG_PATH, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            log.exception("Failed to load chat_config.json, starting fresh.")
-            return {}
-    return {}
+# -------------------------
+# Config & paths
+# -------------------------
+DATA_DIR = os.getenv("DATA_DIR", "./data")
+os.makedirs(DATA_DIR, exist_ok=True)
+CHAT_CONFIG_FILE = os.path.join(DATA_DIR, "chat_configs.json")
+LOG_FILE = os.path.join(DATA_DIR, "tradingbot_superlong.log")
 
-def save_configs(cfgs: Dict[str, Any]) -> None:
-    with open(CHAT_CONFIG_PATH, "w", encoding="utf-8") as f:
-        json.dump(cfgs, f, indent=2)
+BYBIT_BASE = "https://api.bybit.com"
 
-configs = load_configs()
+# canonical intervals the bot understands
+VALID_INTERVALS = {"1m", "5m", "15m", "30m", "1h", "2h", "4h", "6h", "12h", "1d", "1w", "1M"}
+# map canonical to Bybit interval codes used earlier (we'll support many)
+MAP_INTERVAL = {
+    "1m": "1",
+    "5m": "5",
+    "15m": "15",
+    "30m": "30",
+    "1h": "60",
+    "2h": "120",
+    "4h": "240",
+    "6h": "360",
+    "12h": "720",
+    "1d": "D",
+    "1w": "W",
+    "1M": "M"
+}
 
-def get_chat_cfg(chat_id: str) -> Dict[str, Any]:
-    if chat_id not in configs:
-        configs[chat_id] = {
-            "interval": DEFAULT_INTERVAL,
-            "hour_utc": DEFAULT_HOUR_UTC,
-            "letters": DEFAULT_LETTERS,
-            "suffix": DEFAULT_SUFFIX,
-            "min_candles": DEFAULT_MIN_CANDLES,
-            "max_charts": DEFAULT_MAX_CHARTS,
-            "test_pattern": DEFAULT_TEST_PATTERN,
-            "paused": False,
-        }
-        save_configs(configs)
-    return configs[chat_id]
+DEFAULT_INTERVAL = "1h"
+DEFAULT_LIMIT = 200
+DEFAULT_SUFFIX = "USDT"
+DEFAULT_HOUR_UTC = 9
+DEFAULT_TEST_PATTERN = [20, 20, 20]
+MAX_CHARTS_SAFE = 20
+CACHE_TTL = 3600  # seconds
+HTTP_TIMEOUT = 20  # seconds
 
-# networking helpers with retries
-def http_get_json(url: str, params: dict = None, headers: dict = None, max_retries=4, timeout=10):
+# -------------------------
+# Logging
+# -------------------------
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] tradingBot_superlong: %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout), logging.FileHandler(LOG_FILE, encoding="utf-8")]
+)
+logger = logging.getLogger("tradingBot_superlong")
+
+logger.info("DEBUG: TELEGRAM_TOKEN=%s", (TELEGRAM_TOKEN[:10] + "...") if TELEGRAM_TOKEN else None)
+logger.info("DEBUG: BYBIT_API_KEY=%s", (BYBIT_API_KEY[:6] + "...") if BYBIT_API_KEY else None)
+
+# -------------------------
+# Globals
+# -------------------------
+_symbol_cache: Dict[str, Tuple[float, Any]] = {}
+_chat_configs: Dict[str, Any] = {}
+
+# -------------------------
+# Persistence helpers
+# -------------------------
+def load_json(path: str) -> Any:
+    try:
+        if not os.path.exists(path):
+            return None
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        logger.exception("Failed to load JSON: %s", path)
+        return None
+
+def save_json(path: str, data: Any):
+    try:
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+    except Exception:
+        logger.exception("Failed to save JSON: %s", path)
+
+_loaded_cfg = load_json(CHAT_CONFIG_FILE)
+if isinstance(_loaded_cfg, dict):
+    _chat_configs = _loaded_cfg
+else:
+    _chat_configs = {}
+
+def default_chat_config() -> Dict[str, Any]:
+    return {
+        "interval": DEFAULT_INTERVAL,
+        "hour": DEFAULT_HOUR_UTC,
+        "suffix": DEFAULT_SUFFIX,
+        "min_candles": 50,
+        "max_charts": 6,
+        "paused": False,
+        "custom_letters": None,
+        "forced_letter": None,
+        "last_run": None,
+        "test_pattern": DEFAULT_TEST_PATTERN,
+        "require_binance_match": False
+    }
+
+def ensure_chat_config(chat_id: int) -> Dict[str, Any]:
+    key = str(chat_id)
+    if key not in _chat_configs:
+        _chat_configs[key] = default_chat_config()
+        save_json(CHAT_CONFIG_FILE, _chat_configs)
+    return _chat_configs[key]
+
+def save_chat_configs():
+    save_json(CHAT_CONFIG_FILE, _chat_configs)
+
+# -------------------------
+# HTTP helper with retries
+# -------------------------
+def http_get_json(url: str, params: dict = None, max_retries: int = 4, backoff: float = 2.0, timeout: int = HTTP_TIMEOUT):
+    params = params or {}
+    attempt = 0
     last_exc = None
-    for attempt in range(1, max_retries + 1):
+    while attempt < max_retries:
+        attempt += 1
         try:
-            r = requests.get(url, params=params, headers=headers, timeout=timeout)
+            r = requests.get(url, params=params, timeout=timeout)
+            text = r.text[:2000] if r.text else ""
             if r.status_code == 200:
-                return r.json()
+                try:
+                    return r.json()
+                except Exception:
+                    return text
             else:
-                last_exc = Exception(f"HTTP {r.status_code}: {r.text[:400]}")
-                log.warning("%s returned %s (attempt %d/%d)", url, r.status_code, attempt, max_retries)
-                # If 403 country block or similar, surface quickly
-                if r.status_code in (401, 403):
-                    break
+                last_exc = RuntimeError(f"HTTP {r.status_code}: {text}")
+                logger.warning("GET %s returned %s (attempt %d/%d)", url, r.status_code, attempt, max_retries)
+                if r.status_code == 429:
+                    time.sleep(5 * attempt)
+                else:
+                    time.sleep(backoff ** (attempt - 1))
         except Exception as e:
             last_exc = e
-            log.warning("GET %s failed (attempt %d/%d): %s", url, attempt, max_retries, e)
+            logger.warning("GET %s failed on attempt %d/%d: %s", url, attempt, max_retries, e)
+            time.sleep(backoff ** (attempt - 1))
     raise RuntimeError(f"Failed GET {url} after {max_retries} attempts: {last_exc}")
 
-# Bybit public endpoints (v5)
-def fetch_bybit_instruments():
-    url = "https://api.bybit.com/v5/market/instruments-info"
+# -------------------------
+# Bybit symbol list (cached)
+# -------------------------
+def fetch_bybit_symbols(force: bool = False) -> List[str]:
+    key = "bybit_symbols"
+    now = time.time()
+    if not force and key in _symbol_cache:
+        ts, val = _symbol_cache[key]
+        if now - ts < CACHE_TTL:
+            return val
+    url = BYBIT_BASE + "/v5/market/instruments-info"
+    params = {"category": "linear"}
     try:
-        data = http_get_json(url)
-        # format: data['result']['list']...
-        lst = []
-        for item in data.get("result", {}).get("list", []):
-            symbol = item.get("symbol")
-            if symbol:
-                lst.append(symbol)
-        return lst
-    except Exception as e:
-        log.warning("Bybit instruments fetch failed: %s", e)
+        data = http_get_json(url, params=params)
+        syms = []
+        if isinstance(data, dict):
+            for item in data.get("result", {}).get("list", []):
+                sym = item.get("symbol")
+                if sym:
+                    syms.append(sym)
+        _symbol_cache[key] = (now, syms)
+        try:
+            with open(os.path.join(DATA_DIR, "bybit_symbols_cache.json"), "w", encoding="utf-8") as f:
+                json.dump(syms, f, indent=2)
+        except Exception:
+            pass
+        return syms
+    except Exception:
+        logger.exception("Failed to fetch bybit symbols")
+        if key in _symbol_cache:
+            return _symbol_cache[key][1]
+        try:
+            cachepath = os.path.join(DATA_DIR, "bybit_symbols_cache.json")
+            if os.path.exists(cachepath):
+                with open(cachepath, "r", encoding="utf-8") as f:
+                    return json.load(f)
+        except Exception:
+            pass
         return []
 
-def bybit_klines(symbol: str, interval: str, limit: int = 500):
-    """
-    Try Bybit v5 kline. If fails or blocked, raises exception.
-    interval examples: '1', '1h', '4h', '1d' -> Bybit expects '1', '60', '240', 'D' sometimes.
-    We'll map common: '1m','3m','5m','15m','30m','1h','4h','1d' to Bybit interval codes if needed.
-    But Bybit supports the same strings as Binance in v5: '1m','3m','5m','15m','30m','1h','4h','1d'
-    """
-    url = "https://api.bybit.com/v5/market/kline"
-    params = {"symbol": symbol, "interval": interval, "limit": limit}
-    data = http_get_json(url, params=params)
-    # bybit returns data['result']['list'] as rows: [open_time, open, high, low, close, volume, ...]
-    res = []
-    for row in data.get("result", {}).get("list", []):
-        # ensure correct shape
-        t = int(row[0]) // 1000 if row[0] > 1e12 else int(row[0])
-        res.append([datetime.fromtimestamp(t, tz=timezone.utc), float(row[1]), float(row[2]), float(row[3]), float(row[4]), float(row[5])])
-    df = pd.DataFrame(res, columns=["time", "open", "high", "low", "close", "volume"])
-    df.set_index("time", inplace=True)
-    return df
-
-# Binance fallback
-def binance_klines(symbol: str, interval: str, limit: int = 500):
-    url = "https://api.binance.com/api/v3/klines"
-    params = {"symbol": symbol, "interval": interval, "limit": limit}
-    r = requests.get(url, params=params, timeout=10)
-    r.raise_for_status()
-    rows = r.json()
-    res = []
-    for row in rows:
-        t = int(row[0]) // 1000
-        res.append([datetime.fromtimestamp(t, tz=timezone.utc), float(row[1]), float(row[2]), float(row[3]), float(row[4]), float(row[5])])
-    df = pd.DataFrame(res, columns=["time", "open", "high", "low", "close", "volume"])
-    df.set_index("time", inplace=True)
-    return df
-
-def fetch_klines_with_fallback(symbol: str, interval: str, limit: int = 500):
-    """
-    Try Bybit first. If blocked/fails, fallback to Binance.
-    """
-    # If symbol like 'BTCUSDT' or 'ETHUSDT' it's fine for both.
-    # Try Bybit
+# -------------------------
+# Defensive Bybit kline fetch
+# -------------------------
+def get_bybit_klines(symbol: str, interval: str = "1h", limit: int = DEFAULT_LIMIT, log_raw: bool = False) -> pd.DataFrame:
+    if interval not in VALID_INTERVALS:
+        raise ValueError("Invalid interval")
+    bybit_interval = MAP_INTERVAL.get(interval, MAP_INTERVAL.get(DEFAULT_INTERVAL))
+    url = BYBIT_BASE + "/v5/market/kline"
+    params = {"category": "linear", "symbol": symbol, "interval": bybit_interval, "limit": str(limit)}
     try:
-        df = bybit_klines(symbol, interval, limit)
-        if df is not None and not df.empty:
-            return df
+        data = http_get_json(url, params=params, max_retries=4)
     except Exception as e:
-        log.warning("Bybit kline failed for %s: %s", symbol, e)
+        logger.warning("Kline fetch HTTP failed for %s %s: %s", symbol, interval, e)
+        return pd.DataFrame()
 
-    # Try Binance
-    try:
-        df = binance_klines(symbol, interval, limit)
-        if df is not None and not df.empty:
-            return df
-    except Exception as e:
-        log.warning("Binance kline failed for %s: %s", symbol, e)
+    if log_raw:
+        try:
+            logger.debug("RAW kline for %s: %s", symbol, str(data)[:2000])
+        except Exception:
+            pass
 
-    # Last fallback: try yfinance for some symbols (best-effort)
-    try:
-        import yfinance as yf
-        yf_symbol = symbol.replace("USDT", "-USD") if "USDT" in symbol else symbol
-        hist = yf.download(yf_symbol, period="60d", interval=interval if interval.endswith("m") or interval.endswith("h") or interval.endswith("d") else "1d", progress=False)
-        if not hist.empty:
-            hist = hist.rename(columns={"Open": "open", "High": "high", "Low": "low", "Close": "close", "Volume": "volume"})
-            hist.index = [pd.Timestamp(t).tz_convert('UTC') if hasattr(t, "tzinfo") else pd.Timestamp(t).tz_localize('UTC') for t in hist.index]
-            return hist[["open", "high", "low", "close", "volume"]]
-    except Exception as e:
-        log.debug("yfinance fallback failed: %s", e)
-
-    raise RuntimeError(f"No kline source returned data for {symbol} {interval}")
-
-# Price fetch with fallback
-def fetch_price(symbol: str) -> float:
-    # try Bybit ticker
-    try:
-        url = "https://api.bybit.com/v2/public/tickers"
-        r = requests.get(url, params={"symbol": symbol}, timeout=6)
-        if r.status_code == 200:
-            j = r.json()
-            ret = j.get("result", [])
-            if ret:
-                price = float(ret[0].get("last_price"))
-                return price
-    except Exception:
-        pass
-    # try Binance
-    try:
-        url = "https://api.binance.com/api/v3/ticker/price"
-        r = requests.get(url, params={"symbol": symbol}, timeout=6)
-        r.raise_for_status()
-        j = r.json()
-        return float(j["price"])
-    except Exception:
-        pass
-    # yfinance fallback
-    try:
-        import yfinance as yf
-        yf_symbol = symbol.replace("USDT", "-USD") if "USDT" in symbol else symbol
-        t = yf.Ticker(yf_symbol)
-        info = t.history(period="1d")
-        if not info.empty:
-            return float(info["Close"].iloc[-1])
-    except Exception:
-        pass
-    raise RuntimeError(f"Unable to fetch price for {symbol}")
-
-# Plotting utilities
-def _sync_plot_bytes(df: pd.DataFrame, symbol: str, width=1200, height=720, show_volume=True):
-    """
-    Synchronous: return PNG bytes from a Plotly candlestick chart built from df (index datetime).
-    """
-    fig = go.Figure()
-    fig.add_trace(go.Candlestick(
-        x=df.index, open=df["open"], high=df["high"], low=df["low"], close=df["close"], name=symbol
-    ))
-    if show_volume and "volume" in df.columns:
-        # Add a secondary y-axis for volume
-        fig.update_layout(
-            xaxis=dict(rangeslider=dict(visible=False)),
-            margin=dict(l=10, r=10, t=40, b=20),
-            height=height,
-            width=width
-        )
-        # Add volume as bar trace
-        fig.add_trace(go.Bar(x=df.index, y=df["volume"], yaxis="y2", name="Volume", opacity=0.3))
-        fig.update_layout(
-            yaxis2=dict(overlaying="y", side="right", showgrid=False, position=1.02, title="Volume")
-        )
+    rows = []
+    if isinstance(data, dict):
+        rows = data.get("result", {}).get("list") or []
+    elif isinstance(data, list):
+        rows = data
     else:
-        fig.update_layout(height=height, width=width, margin=dict(l=10, r=10, t=40, b=20))
-    fig.update_layout(title=f"{symbol} • Candlestick", template="plotly_white")
-    # export to png bytes using kaleido
-    img_bytes = fig.to_image(format="png", engine="kaleido")
-    return img_bytes
+        logger.warning("Unexpected kline payload type for %s: %s", symbol, type(data))
+        rows = []
 
-# Simple supply & demand zone identification (very basic)
-def compute_supply_demand_zones(df: pd.DataFrame, lookback: int = 50) -> Dict[str, List[float]]:
-    """
-    Finds local tops (supply) and bottoms (demand) as candidate zones.
-    Very naive: pick N highest highs and N lowest lows over lookback window.
-    """
-    highs = df["high"].tail(lookback)
-    lows = df["low"].tail(lookback)
-    supply = sorted(highs.nlargest(3).tolist())
-    demand = sorted(lows.nsmallest(3).tolist())
-    return {"supply": supply, "demand": demand}
+    if not rows:
+        # fallback for sparse markets
+        if interval in ("1h", "4h", "1d"):
+            logger.info("No rows for %s at %s; trying fallback 15m", symbol, interval)
+            time.sleep(0.3)
+            return get_bybit_klines(symbol, interval="15m", limit=limit, log_raw=log_raw)
+        return pd.DataFrame()
 
-# Chat scheduling with APScheduler
-scheduler = BackgroundScheduler()
-scheduler.start()
-
-def schedule_daily_for_chat(chat_id: str):
-    cfg = get_chat_cfg(str(chat_id))
-    hour = cfg.get("hour_utc", DEFAULT_HOUR_UTC)
-    # remove any existing jobs for that chat
-    job_id = f"daily_{chat_id}"
-    scheduler.remove_job(job_id=job_id, jobstore=None) if scheduler.get_job(job_id) else None
-    # schedule at specified UTC hour, daily
-    trigger = CronTrigger(hour=hour, minute=0, timezone=timezone.utc)
-    scheduler.add_job(func=partial(run_daily_delivery, chat_id), trigger=trigger, id=job_id, replace_existing=True)
-    log.info("Scheduled daily delivery for chat %s at UTC hour %d", chat_id, hour)
-
-async def run_daily_delivery(chat_id: str):
-    """
-    Build today's list and send charts (respecting paused flag and config).
-    Runs inside scheduler (sync) — but we will call into async via application.
-    """
-    # This function will be executed by APScheduler in a thread; use Application to send messages.
     try:
-        cfg = get_chat_cfg(str(chat_id))
-        if cfg.get("paused", False):
-            log.info("Delivery for chat %s is paused.", chat_id)
-            return
-        # determine today's letter from cycle
-        letters = cfg.get("letters", DEFAULT_LETTERS)
-        idx = (datetime.utcnow().date().toordinal()) % len(letters)
-        today_letter = letters[idx]
-        suffix = cfg.get("suffix", DEFAULT_SUFFIX)
-        max_charts = cfg.get("max_charts", DEFAULT_MAX_CHARTS)
-        # fetch symbols — try Bybit first
-        symbols = fetch_bybit_instruments()
-        if not symbols:
-            log.info("Bybit instruments empty; trying Binance exchangeInfo")
-            try:
-                j = http_get_json("https://api.binance.com/api/v3/exchangeInfo")
-                symbols = [s["symbol"] for s in j.get("symbols", [])]
-            except Exception:
-                log.warning("Failed to fetch exchange symbols from Binance.")
-                symbols = []
-        # filter by letter and suffix
-        filtered = [s for s in symbols if s.upper().startswith(today_letter.upper()) and s.upper().endswith(suffix.upper())]
-        filtered = filtered[:max_charts]
-        a = application  # global from main
-        # send message header
-        await a.bot.send_message(int(chat_id), text=f"Daily charts for letter {today_letter} ({len(filtered)} symbols).")
-        # for each symbol, build a chart and send
-        for sym in filtered:
-            try:
-                df = fetch_klines_with_fallback(sym, cfg.get("interval", DEFAULT_INTERVAL), limit=200)
-                if df.shape[0] < cfg.get("min_candles", DEFAULT_MIN_CANDLES):
-                    await a.bot.send_message(int(chat_id), text=f"Skipping {sym}: insufficient candles ({df.shape[0]})")
-                    continue
-                # render plot in executor to avoid blocking scheduler thread
-                loop = asyncio.get_running_loop()
-                img_bytes = await loop.run_in_executor(None, partial(_sync_plot_bytes, df.tail(200), sym))
-                await a.bot.send_photo(int(chat_id), photo=img_bytes, caption=f"{sym} • {cfg.get('interval')}")
-            except Exception as e:
-                await a.bot.send_message(int(chat_id), text=f"Failed chart {sym}: {e}")
-    except Exception:
-        log.exception("run_daily_delivery failed")
+        df = pd.DataFrame(rows)
+        if df.shape[1] >= 6:
+            df = df.iloc[:, :6]
+            df.columns = ["timestamp", "open", "high", "low", "close", "volume"]
+        else:
+            logger.warning("Kline rows for %s have unexpected shape: %s", symbol, df.shape)
+            return pd.DataFrame()
 
-# Telegram command handlers
+        df["timestamp"] = pd.to_numeric(df["timestamp"], errors="coerce")
+        if df["timestamp"].max() > 1e12:
+            df["timestamp"] = (df["timestamp"] / 1000).astype(int)
+        df["timestamp"] = pd.to_datetime(df["timestamp"], unit="s", utc=True)
+        df.set_index("timestamp", inplace=True)
+        for c in ["open", "high", "low", "close", "volume"]:
+            df[c] = pd.to_numeric(df[c], errors="coerce")
+        df.dropna(inplace=True)
+        df = df.sort_index()
+        return df
+    except Exception:
+        logger.exception("Failed to parse kline rows for %s", symbol)
+        return pd.DataFrame()
+
+# -------------------------
+# Mathematical Supply & Demand detection
+# -------------------------
+def detect_supply_demand_zones(
+    df: pd.DataFrame,
+    lookback: int = 50,
+    vol_multiplier: float = 1.5,
+    price_window: int = 3,
+    subsequent_move_pct: float = 0.03
+) -> Tuple[List[Tuple[float, float, int, int, float]], List[Tuple[float, float, int, int, float]]]:
+    sells = []
+    buys = []
+    try:
+        if df.empty or len(df) < (lookback + price_window + 2):
+            return sells, buys
+
+        vol_avg = df["volume"].rolling(window=lookback, min_periods=1).mean()
+        highs = df["high"].values
+        lows = df["low"].values
+        closes = df["close"].values
+        n = len(df)
+
+        for i in range(price_window, n - price_window - 1):
+            # pivot high
+            window_high = highs[i - price_window:i + price_window + 1]
+            if highs[i] == window_high.max():
+                if df["volume"].iat[i] > vol_multiplier * vol_avg.iat[i]:
+                    look_ahead = min(n - 1, i + price_window)
+                    subsequent_min = closes[i + 1: look_ahead + 1].min() if i + 1 <= look_ahead else closes[i + 1]
+                    move_pct = (closes[i] - subsequent_min) / closes[i] if closes[i] else 0
+                    if move_pct >= subsequent_move_pct:
+                        ph = highs[i]
+                        pl = closes[i] * 0.995
+                        si = max(0, i - lookback)
+                        ei = min(n - 1, i + price_window)
+                        score = (df["volume"].iat[i] / (vol_avg.iat[i] + 1e-9)) * move_pct
+                        sells.append((pl, ph, si, ei, float(score)))
+            # pivot low
+            window_low = lows[i - price_window:i + price_window + 1]
+            if lows[i] == window_low.min():
+                if df["volume"].iat[i] > vol_multiplier * vol_avg.iat[i]:
+                    look_ahead = min(n - 1, i + price_window)
+                    subsequent_max = closes[i + 1: look_ahead + 1].max() if i + 1 <= look_ahead else closes[i + 1]
+                    move_pct = (subsequent_max - closes[i]) / closes[i] if closes[i] else 0
+                    if move_pct >= subsequent_move_pct:
+                        pl = lows[i]
+                        ph = closes[i] * 1.005
+                        si = max(0, i - lookback)
+                        ei = min(n - 1, i + price_window)
+                        score = (df["volume"].iat[i] / (vol_avg.iat[i] + 1e-9)) * move_pct
+                        buys.append((pl, ph, si, ei, float(score)))
+    except Exception:
+        logger.exception("Zone detection failure")
+    sells.sort(key=lambda x: x[4], reverse=True)
+    buys.sort(key=lambda x: x[4], reverse=True)
+    return sells, buys
+
+# -------------------------
+# Plotly light-mode chart with zones and markers
+# -------------------------
+def plotly_candles_with_zones_light(df: pd.DataFrame, symbol: str, interval: str,
+                                    lookback: int = 50, vol_multiplier: float = 1.8) -> BytesIO:
+    if df.empty:
+        raise ValueError("Empty dataframe")
+
+    df_plot = df.copy()
+    if df_plot.index.tz is not None:
+        df_plot.index = df_plot.index.tz_convert(None)
+
+    sells, buys = detect_supply_demand_zones(df_plot, lookback=lookback, vol_multiplier=vol_multiplier)
+
+    fig = go.Figure()
+
+    # Candles
+    fig.add_trace(go.Candlestick(
+        x=df_plot.index,
+        open=df_plot['open'],
+        high=df_plot['high'],
+        low=df_plot['low'],
+        close=df_plot['close'],
+        increasing_line_color='#008000',
+        decreasing_line_color='#D62728',
+        showlegend=False
+    ))
+
+    # volume
+    volumes = df_plot['volume']
+    max_vol = volumes.max() if not volumes.empty else 1
+    fig.add_trace(go.Bar(
+        x=df_plot.index,
+        y=volumes,
+        marker_color='rgba(120,120,120,0.4)',
+        yaxis='y2',
+        showlegend=False
+    ))
+
+    dates = list(df_plot.index.to_pydatetime())
+    n = len(df_plot)
+
+    # sells
+    for idx, (pl, ph, si, ei, score) in enumerate(sells):
+        try:
+            x0 = dates[si]
+            x1 = dates[ei]
+            fig.add_shape(type="rect", xref="x", yref="y", x0=x0, x1=x1, y0=pl, y1=ph,
+                          fillcolor="rgba(255,100,100,0.18)", line_width=0)
+            fig.add_shape(type="line", xref="x", yref="y", x0=x0, x1=x1, y0=pl, y1=pl,
+                          line=dict(color="rgba(255,80,80,0.6)", dash="dash", width=1))
+            fig.add_shape(type="line", xref="x", yref="y", x0=x0, x1=x1, y0=ph, y1=ph,
+                          line=dict(color="rgba(255,80,80,0.6)", dash="dash", width=1))
+            center_x = dates[(si + ei) // 2] if (si + ei) // 2 < n else dates[ei]
+            center_y = ph
+            fig.add_trace(go.Scatter(
+                x=[center_x],
+                y=[center_y],
+                mode="markers+text",
+                marker=dict(symbol="triangle-down", size=10, color="red"),
+                text=[f"S{idx+1}"],
+                textposition="top center",
+                showlegend=False
+            ))
+        except Exception:
+            continue
+
+    # buys
+    for idx, (pl, ph, si, ei, score) in enumerate(buys):
+        try:
+            x0 = dates[si]
+            x1 = dates[ei]
+            fig.add_shape(type="rect", xref="x", yref="y", x0=x0, x1=x1, y0=pl, y1=ph,
+                          fillcolor="rgba(100,200,120,0.12)", line_width=0)
+            fig.add_shape(type="line", xref="x", yref="y", x0=x0, x1=x1, y0=pl, y1=pl,
+                          line=dict(color="rgba(0,150,0,0.4)", dash="dash", width=1))
+            fig.add_shape(type="line", xref="x", yref="y", x0=x0, x1=x1, y0=ph, y1=ph,
+                          line=dict(color="rgba(0,150,0,0.4)", dash="dash", width=1))
+            center_x = dates[(si + ei) // 2] if (si + ei) // 2 < n else dates[ei]
+            center_y = pl
+            fig.add_trace(go.Scatter(
+                x=[center_x],
+                y=[center_y],
+                mode="markers+text",
+                marker=dict(symbol="triangle-up", size=10, color="green"),
+                text=[f"D{idx+1}"],
+                textposition="bottom center",
+                showlegend=False
+            ))
+        except Exception:
+            continue
+
+    fig.update_layout(
+        template="plotly_white",
+        plot_bgcolor='rgba(250,250,250,1)',
+        paper_bgcolor='rgba(250,250,250,1)',
+        margin=dict(l=60, r=20, t=60, b=60),
+        xaxis=dict(rangeslider=dict(visible=False), showgrid=True, gridcolor='rgba(200,200,200,0.3)'),
+        yaxis=dict(side='right', showgrid=True, gridcolor='rgba(200,200,200,0.3)'),
+        yaxis2=dict(overlaying='y', side='left', position=0.06, showgrid=False, title='Volume', range=[0, max_vol*5 if max_vol else 1]),
+        title=f"{symbol} — {interval} — Supply/Demand zones"
+    )
+
+    fig.update_xaxes(range=[df_plot.index[0], df_plot.index[-1]])
+
+    try:
+        img_bytes = pio.to_image(fig, format="png", width=1400, height=800, scale=1)
+        buf = BytesIO(img_bytes)
+        buf.seek(0)
+        return buf
+    except Exception as e:
+        logger.exception("Plotly to_image failed: %s", e)
+        try:
+            tmpfn = os.path.join(DATA_DIR, f"{symbol}_{interval}_tmp.png")
+            fig.write_image(tmpfn, width=1400, height=800)
+            with open(tmpfn, "rb") as f:
+                b = BytesIO(f.read())
+            try:
+                os.remove(tmpfn)
+            except Exception:
+                pass
+            b.seek(0)
+            return b
+        except Exception:
+            logger.exception("Plotly fallback also failed")
+            raise
+
+# -------------------------
+# Sync wrapper for plotting used by run_in_executor
+# -------------------------
+def _sync_plot_bytes_safe(symbol: str, interval: str, lookback: int = 50, vol_multiplier: float = 1.8) -> BytesIO:
+    bybit_list = fetch_bybit_symbols()
+    if bybit_list and symbol not in bybit_list:
+        raise RuntimeError(f"Symbol {symbol} not found in Bybit instruments-info")
+
+    df = get_bybit_klines(symbol, interval=interval, limit=DEFAULT_LIMIT, log_raw=True)
+    if df.empty and interval in ("1h", "4h", "1d"):
+        df = get_bybit_klines(symbol, interval="15m", limit=DEFAULT_LIMIT, log_raw=True)
+    if df.empty:
+        raise RuntimeError(f"No kline data for {symbol} at {interval}")
+    if len(df) < 12:
+        raise RuntimeError(f"Insufficient candles for {symbol} ({len(df)}). Increase limit or use different interval.")
+
+    buf = plotly_candles_with_zones_light(df, symbol, interval, lookback=lookback, vol_multiplier=vol_multiplier)
+    return buf
+
+# -------------------------
+# normalize_interval utility
+# -------------------------
+def normalize_interval(raw: str) -> Optional[str]:
+    """
+    Normalize many user input variants into canonical intervals from VALID_INTERVALS.
+    Accepts digits (15 -> 15m), '60' -> 1h, '1H', '60m', '1d', 'D', 'week', '1M', etc.
+    """
+    if not raw:
+        return None
+    s = str(raw).strip().lower()
+    # direct match
+    smap = {
+        "1": "1m", "5": "5m", "15": "15m", "30": "30m", "60": "1h", "240": "4h",
+        "1440": "1d", "1m": "1m", "5m": "5m", "15m": "15m", "30m": "30m",
+        "1h": "1h", "2h": "2h", "4h": "4h", "6h": "6h", "12h": "12h",
+        "1d": "1d", "d": "1d", "day": "1d", "1w": "1w", "w": "1w", "1month": "1M", "1mo":"1M", "1mth":"1M"
+    }
+    if s in smap:
+        val = smap[s]
+        return val if val in VALID_INTERVALS else None
+    # numeric only
+    if s.isdigit():
+        n = int(s)
+        if n == 1:
+            return "1m"
+        if n in (5, 15, 30):
+            return f"{n}m"
+        if n == 60:
+            return "1h"
+        if n == 120:
+            return "2h"
+        if n == 240:
+            return "4h"
+        if n == 360:
+            return "6h"
+        if n == 720:
+            return "12h"
+        if n == 1440:
+            return "1d"
+        return None
+    # capture patterns
+    m = re.match(r'^(\d+)\s*(m|min|mins|minute|minutes|h|hr|hour|hours|d|day|days|w|week|mo|month|months)$', s)
+    if m:
+        val = int(m.group(1))
+        unit = m.group(2)
+        if unit.startswith('m') and unit != 'mo':
+            if val in (1,5,15,30):
+                return f"{val}m"
+            if val == 60:
+                return "1h"
+            if val == 240:
+                return "4h"
+            return None
+        if unit.startswith('h'):
+            if val == 1:
+                return "1h"
+            if val == 2:
+                return "2h"
+            if val == 4:
+                return "4h"
+            if val == 6:
+                return "6h"
+            if val == 12:
+                return "12h"
+            return None
+        if unit.startswith('d'):
+            if val == 1:
+                return "1d"
+            return None
+        if unit.startswith('w'):
+            if val == 1:
+                return "1w"
+            return None
+        if unit in ("mo","month","months"):
+            if val == 1:
+                return "1M"
+            return None
+    # synonyms
+    syn = {
+        "60m": "1h", "60min":"1h", "1hour":"1h", "onehour":"1h", "hour":"1h",
+        "day":"1d", "daily":"1d", "week":"1w", "monthly":"1M"
+    }
+    if s in syn:
+        return syn[s] if syn[s] in VALID_INTERVALS else None
+    return None
+
+# -------------------------
+# Utility: get last price
+# -------------------------
+def get_last_price(symbol: str, interval: str = DEFAULT_INTERVAL) -> Optional[float]:
+    df = get_bybit_klines(symbol, interval=interval, limit=2)
+    if df.empty:
+        return None
+    return float(df["close"].iat[-1])
+
+# -------------------------
+# Helper: cycle letter
+# -------------------------
+def get_cycle_letter(cfg: Dict[str, Any], offset: int = 0) -> str:
+    forced = cfg.get("forced_letter")
+    if forced:
+        return forced.upper()
+    letters = cfg.get("custom_letters") or "".join(chr(i) for i in range(65, 91))
+    letters = list(letters.upper())
+    today = datetime.utcnow().date() + timedelta(days=offset)
+    idx = (today.timetuple().tm_yday - 1) % len(letters)
+    return letters[idx]
+
+# -------------------------
+# Telegram handlers
+# -------------------------
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = str(update.effective_chat.id)
-    get_chat_cfg(chat_id)
-    save_configs(configs)
-    schedule_daily_for_chat(chat_id)
-    await update.message.reply_text("Registered for daily delivery. Use /help to see commands.")
+    chat_id = update.effective_chat.id
+    ensure_chat_config(chat_id)
+    await update.message.reply_text("✅ Registered. Daily delivery scheduled. Use /help to see commands.")
 
 async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    txt = """TradingBot commands:
-/start - register and schedule daily delivery
-/help - show this help
-/status - show config for this chat
-/list - list today's symbols for the current letter
-/chart SYMBOL [INTERVAL] - single candlestick chart (e.g. /chart BTCUSDT 1h)
-/analyze SYMBOL [INTERVAL] - chart + simple supply/demand zones
-/price SYMBOL - live last price
-/setinterval I - set default kline interval (e.g. 1h,15m,1d or numeric like 60)
-/sethour H - set UTC hour for daily delivery
-/setletter X - force today to be letter X (single letter)
-//setletters ABC - set custom cycle
-/setsuffix S or - - set or disable suffix filter (e.g. USDT or - to disable)
-/setmin N - set minimum candles required
-/setmax M - set maximum charts per run
-/settestpattern a,b,c - set the /test batch pattern (defaults to 20,20,20)
-/pause - pause daily delivery
-/resume - resume daily delivery
-/test [pattern] - RUN auto-listing + auto-charting now
-/diag SYMBOL - fetch raw Bybit JSON for symbol
-/export - export chat config as json
-/import <json> - import chat config (paste JSON)
-/allletters - show full cycle and today's letter
-"""
-    await update.message.reply_text(txt)
+    help_text = (
+        "🤖 tradingBot — commands\n\n"
+        "/start - register and schedule daily delivery\n"
+        "/help - show this help\n"
+        "/status - show config for this chat\n"
+        "/list - list today's symbols for the current letter and auto-send charts\n"
+        "/chart SYMBOL [INTERVAL] - single candlestick chart (e.g. /chart BTCUSDT 1h)\n"
+        "/analyze SYMBOL [INTERVAL] - chart + supply/demand zones\n"
+        "/price SYMBOL - live last price\n"
+        "/setinterval I - set default kline interval (e.g. 1h,15m,1d or numeric like 60)\n"
+        "/sethour H - set UTC hour for daily delivery\n"
+        "/setletter X - force today to be letter X\n"
+        "/setletters ABC - set custom cycle\n"
+        "/setsuffix S or - - set or disable suffix filter (e.g. USDT)\n"
+        "/setmin N - set minimum candles required\n"
+        "/setmax M - set maximum charts per run\n"
+        "/settestpattern a,b,c - set the /test batch pattern (defaults to 20,20,20)\n"
+        "/pause - pause daily delivery\n"
+        "/resume - resume daily delivery\n"
+        "/test [pattern] - RUN auto-listing + auto-charting now\n"
+        "/diag SYMBOL - fetch raw Bybit JSON for symbol\n"
+        "/export - export chat config as json\n"
+        "/import <json> - import chat config\n"
+        "/allletters - show full cycle and today's letter\n"
+    )
+    await update.message.reply_text(help_text)
 
 async def cmd_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    idx = (datetime.utcnow().date().toordinal()) % len(cfg.get("letters", DEFAULT_LETTERS))
-    today_letter = cfg.get("letters", DEFAULT_LETTERS)[idx]
-    text = (
-        f"Config for chat {chat_id}:\n"
-        f"interval: {cfg.get('interval')}\n"
-        f"hour_utc: {cfg.get('hour_utc')}\n"
-        f"letters: {cfg.get('letters')}\n"
-        f"today's letter: {today_letter}\n"
-        f"suffix: {cfg.get('suffix')}\n"
-        f"min_candles: {cfg.get('min_candles')}\n"
-        f"max_charts: {cfg.get('max_charts')}\n"
-        f"test_pattern: {cfg.get('test_pattern')}\n"
-        f"paused: {cfg.get('paused')}\n"
-    )
-    await update.message.reply_text(text)
+    cfg = ensure_chat_config(update.effective_chat.id)
+    await update.message.reply_text(json.dumps(cfg, indent=2))
 
 async def cmd_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    letters = cfg.get("letters", DEFAULT_LETTERS)
-    idx = (datetime.utcnow().date().toordinal()) % len(letters)
-    today_letter = letters[idx]
-    suffix = cfg.get("suffix", DEFAULT_SUFFIX)
-    # fetch symbols
-    symbols = fetch_bybit_instruments()
-    if not symbols:
-        try:
-            j = http_get_json("https://api.binance.com/api/v3/exchangeInfo")
-            symbols = [s["symbol"] for s in j.get("symbols", [])]
-        except Exception:
-            symbols = []
-    filtered = [s for s in symbols if s.upper().startswith(today_letter.upper()) and (not suffix or s.upper().endswith(suffix.upper()))]
-    await update.message.reply_text(f"Today's letter {today_letter}. Found {len(filtered)} symbols (showing up to {cfg.get('max_charts')}).\n" + ", ".join(filtered[:cfg.get("max_charts")]))
+    chat_id = update.effective_chat.id
+    cfg = ensure_chat_config(chat_id)
+    letter = get_cycle_letter(cfg)
+    await update.message.reply_text(f"📅 Today's letter: {letter}\nFetching Bybit futures symbols...")
+    try:
+        bybit_all = fetch_bybit_symbols()
+        suf = (cfg.get("suffix") or "").upper()
+        candidates = [s for s in bybit_all if s.upper().endswith(suf)] if suf else bybit_all
+        todays = [s for s in candidates if s.startswith(letter)]
+        if not todays:
+            await update.message.reply_text(f"No symbols found for letter {letter}")
+            return
+        joined = "\n".join(todays)
+        if len(joined) > 4000:
+            await update.message.reply_text(f"Found {len(todays)} symbols — sending first 200")
+            await update.message.reply_text("\n".join(todays[:200]))
+        else:
+            await update.message.reply_text(joined)
 
+        maxc = min(int(cfg.get("max_charts", 6)), MAX_CHARTS_SAFE)
+        to_chart = todays[:maxc]
+        if to_chart:
+            await update.message.reply_text(f"Auto-charting first {len(to_chart)} symbols...")
+            loop = __import__("asyncio").get_event_loop()
+            per_symbol_delay = 0.8
+            for sym in to_chart:
+                try:
+                    img = await loop.run_in_executor(None, _sync_plot_bytes_safe, sym, cfg.get("interval", DEFAULT_INTERVAL), 50, 1.8)
+                    img.seek(0)
+                    await update.message.reply_photo(photo=img, caption=f"{sym} {cfg.get('interval', DEFAULT_INTERVAL)}")
+                    img.close()
+                except Exception as e:
+                    logger.exception("Auto-chart failed for %s", sym)
+                    await update.message.reply_text(f"Failed to chart {sym}: {e}")
+                await __import__("asyncio").sleep(per_symbol_delay)
+    except Exception:
+        logger.exception("/list error")
+        await update.message.reply_text("Error during /list (see logs)")
+
+# Improved cmd_chart using normalize_interval and chat config
 async def cmd_chart(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
-        await update.message.reply_text("Usage: /chart SYMBOL [INTERVAL]")
+        await update.message.reply_text("Usage: /chart SYMBOL [INTERVAL]\nExample: /chart ETHUSDT 1h")
         return
+
     symbol = context.args[0].upper()
-    interval = context.args[1] if len(context.args) > 1 else get_chat_cfg(str(update.effective_chat.id)).get("interval", DEFAULT_INTERVAL)
-    try:
-        df = fetch_klines_with_fallback(symbol, interval, limit=500)
-        if df.empty:
-            raise RuntimeError("No kline data")
-        # ensure min candles
-        if df.shape[0] < get_chat_cfg(str(update.effective_chat.id)).get("min_candles", DEFAULT_MIN_CANDLES):
-            await update.message.reply_text(f"Insufficient candles ({df.shape[0]}) for {symbol}")
+    cfg = ensure_chat_config(update.effective_chat.id)
+
+    # determine interval
+    if len(context.args) > 1:
+        raw_interval = context.args[1]
+        interval = normalize_interval(raw_interval)
+        if not interval:
+            await update.message.reply_text(
+                f"Invalid interval '{raw_interval}'. Valid: {', '.join(sorted(VALID_INTERVALS))}.\n"
+                "Examples: 15m,1h,1d or numeric 15 => 15m, 60 => 1h."
+            )
             return
-        loop = asyncio.get_running_loop()
-        img = await loop.run_in_executor(None, partial(_sync_plot_bytes, df.tail(200), symbol))
-        await update.message.reply_photo(photo=img, caption=f"{symbol} • {interval}")
+    else:
+        interval = cfg.get('interval', DEFAULT_INTERVAL)
+
+    await update.message.reply_text(f"Fetching {symbol} {interval} from Bybit...")
+    try:
+        loop = __import__("asyncio").get_event_loop()
+        img = await loop.run_in_executor(None, _sync_plot_bytes_safe, symbol, interval, 50, 1.8)
+        img.seek(0)
+        await update.message.reply_photo(photo=img, caption=f"{symbol} {interval}")
+        img.close()
     except Exception as e:
-        await update.message.reply_text(f"Error charting {symbol}: {e}")
+        logger.exception("/chart error: %s", e)
+        await update.message.reply_text(f"Failed to chart {symbol}: {e}")
 
 async def cmd_analyze(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if not context.args:
-        await update.message.reply_text("Usage: /analyze SYMBOL [INTERVAL]")
-        return
-    symbol = context.args[0].upper()
-    interval = context.args[1] if len(context.args) > 1 else get_chat_cfg(str(update.effective_chat.id)).get("interval", DEFAULT_INTERVAL)
-    try:
-        df = fetch_klines_with_fallback(symbol, interval, limit=500)
-        if df.shape[0] < 20:
-            await update.message.reply_text(f"Insufficient data for {symbol}")
-            return
-        zones = compute_supply_demand_zones(df, lookback=200)
-        # draw chart + horizontal lines for zones
-        def _plot_with_zones():
-            fig = go.Figure()
-            fig.add_trace(go.Candlestick(x=df.index, open=df["open"], high=df["high"], low=df["low"], close=df["close"], name=symbol))
-            for s in zones.get("supply", []):
-                fig.add_hline(y=s, line=dict(dash="dash"), annotation_text=f"supply {s:.4f}")
-            for d in zones.get("demand", []):
-                fig.add_hline(y=d, line=dict(dash="dot"), annotation_text=f"demand {d:.4f}")
-            fig.update_layout(title=f"{symbol} • Analyze ({interval})", height=720, width=1200)
-            return fig.to_image(format="png", engine="kaleido")
-        loop = asyncio.get_running_loop()
-        img = await loop.run_in_executor(None, _plot_with_zones)
-        await update.message.reply_photo(photo=img, caption=f"{symbol} • zones (supply/demand)")
-    except Exception as e:
-        await update.message.reply_text(f"Error analyzing {symbol}: {e}")
+    await cmd_chart(update, context)
 
 async def cmd_price(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Usage: /price SYMBOL")
         return
     symbol = context.args[0].upper()
-    try:
-        price = fetch_price(symbol)
-        await update.message.reply_text(f"{symbol} price: {price}")
-    except Exception as e:
-        await update.message.reply_text(f"Failed to fetch price for {symbol}: {e}")
+    price = get_last_price(symbol, interval=DEFAULT_INTERVAL)
+    if price is None:
+        await update.message.reply_text("Could not fetch price for that symbol.")
+    else:
+        await update.message.reply_text(f"{symbol} last price: {price}")
 
-# setters
+# -------------------------
+# config setters with normalization fix
+# -------------------------
 async def cmd_setinterval(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
-        await update.message.reply_text("Usage: /setinterval INTERVAL (e.g. 1h,15m,1d)")
+        await update.message.reply_text("Usage: /setinterval 1h (valid: " + ", ".join(sorted(VALID_INTERVALS)) + ")\nExamples: /setinterval 15m  OR  /setinterval 60")
         return
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    cfg["interval"] = context.args[0]
-    save_configs(configs)
-    await update.message.reply_text(f"Interval set to {cfg['interval']}")
+
+    raw = context.args[0]
+    norm = normalize_interval(raw)
+    if not norm:
+        await update.message.reply_text(
+            f"Invalid interval '{raw}'. Valid options: {', '.join(sorted(VALID_INTERVALS))}.\n"
+            "Examples: 1m,5m,15m,1h,4h,1d or numeric: 15 (=>15m), 60 (=>1h), 240 (=>4h)."
+        )
+        return
+
+    cfg = ensure_chat_config(update.effective_chat.id)
+    cfg['interval'] = norm
+    save_chat_configs()
+    logger.info("Chat %s set interval -> %s", update.effective_chat.id, norm)
+    await update.message.reply_text(f"✅ Default interval for this chat set to *{norm}*.", parse_mode="Markdown")
 
 async def cmd_sethour(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
-        await update.message.reply_text("Usage: /sethour H (UTC hour 0-23)")
+        await update.message.reply_text("Usage: /sethour 9 (0-23 UTC)")
         return
     try:
         h = int(context.args[0]) % 24
     except Exception:
-        await update.message.reply_text("Invalid hour.")
+        await update.message.reply_text("Invalid hour")
         return
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    cfg["hour_utc"] = h
-    save_configs(configs)
-    schedule_daily_for_chat(chat_id)
-    await update.message.reply_text(f"UTC hour set to {h}")
+    cfg = ensure_chat_config(update.effective_chat.id)
+    cfg["hour"] = h
+    save_chat_configs()
+    await update.message.reply_text(f"Delivery hour set to {h}:00 UTC")
 
 async def cmd_setletter(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Usage: /setletter X")
         return
-    c = context.args[0].upper()[0]
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    # make today's letter be this for immediate operations by shoving a one-letter letters string
-    cfg["letters"] = c
-    save_configs(configs)
-    schedule_daily_for_chat(chat_id)
-    await update.message.reply_text(f"Today's letter forced to {c}")
+    val = context.args[0].upper()
+    if len(val) != 1 or not val.isalpha():
+        await update.message.reply_text("Provide single letter A-Z")
+        return
+    cfg = ensure_chat_config(update.effective_chat.id)
+    cfg["forced_letter"] = val
+    save_chat_configs()
+    await update.message.reply_text(f"Forced letter set to {val}")
 
 async def cmd_setletters(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
-        await update.message.reply_text("Usage: /setletters ABC... (cycle)")
+        await update.message.reply_text("Usage: /setletters ABC...")
         return
-    s = "".join(context.args[0].upper())
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    cfg["letters"] = s
-    save_configs(configs)
-    schedule_daily_for_chat(chat_id)
-    await update.message.reply_text(f"Letters cycle set to {s}")
+    val = context.args[0].upper()
+    if not all(c.isalpha() for c in val):
+        await update.message.reply_text("Letters must be alphabetic")
+        return
+    cfg = ensure_chat_config(update.effective_chat.id)
+    cfg["custom_letters"] = val
+    save_chat_configs()
+    await update.message.reply_text(f"Custom letters set to: {val}")
 
 async def cmd_setsuffix(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
-        await update.message.reply_text("Usage: /setsuffix S (e.g. USDT) or - to disable")
+        await update.message.reply_text("Usage: /setsuffix S or - to disable")
         return
-    s = context.args[0].upper()
-    if s == "-":
-        s = ""
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    cfg["suffix"] = s
-    save_configs(configs)
-    await update.message.reply_text(f"Suffix set to '{s}'")
+    val = context.args[0].upper()
+    cfg = ensure_chat_config(update.effective_chat.id)
+    if val == "-":
+        cfg["suffix"] = ""
+        await update.message.reply_text("Suffix filter disabled")
+    else:
+        cfg["suffix"] = val
+        await update.message.reply_text(f"Suffix set to {val}")
+    save_chat_configs()
 
 async def cmd_setmin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
@@ -538,12 +828,12 @@ async def cmd_setmin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         n = int(context.args[0])
     except Exception:
-        await update.message.reply_text("Invalid integer")
+        await update.message.reply_text("Invalid number")
         return
-    cfg = get_chat_cfg(str(update.effective_chat.id))
-    cfg["min_candles"] = n
-    save_configs(configs)
-    await update.message.reply_text(f"min_candles set to {n}")
+    cfg = ensure_chat_config(update.effective_chat.id)
+    cfg["min_candles"] = max(1, n)
+    save_chat_configs()
+    await update.message.reply_text(f"Minimum candles set to {cfg['min_candles']}")
 
 async def cmd_setmax(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
@@ -552,179 +842,258 @@ async def cmd_setmax(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         m = int(context.args[0])
     except Exception:
-        await update.message.reply_text("Invalid integer")
+        await update.message.reply_text("Invalid number")
         return
-    cfg = get_chat_cfg(str(update.effective_chat.id))
-    cfg["max_charts"] = m
-    save_configs(configs)
-    await update.message.reply_text(f"max_charts set to {m}")
+    cfg = ensure_chat_config(update.effective_chat.id)
+    cfg["max_charts"] = max(0, min(MAX_CHARTS_SAFE, m))
+    save_chat_configs()
+    await update.message.reply_text(f"Max charts per run set to {cfg['max_charts']}")
+
+async def cmd_pause(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    cfg = ensure_chat_config(update.effective_chat.id)
+    cfg["paused"] = True
+    save_chat_configs()
+    await update.message.reply_text("Daily delivery paused for this chat")
+
+async def cmd_resume(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    cfg = ensure_chat_config(update.effective_chat.id)
+    cfg["paused"] = False
+    save_chat_configs()
+    await update.message.reply_text("Daily delivery resumed for this chat")
 
 async def cmd_settestpattern(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Usage: /settestpattern a,b,c")
         return
-    try:
-        pattern = [int(x) for x in context.args[0].split(",")]
-    except Exception:
-        await update.message.reply_text("Invalid pattern. Use comma separated integers.")
+    raw = "".join(context.args)
+    parts = [p.strip() for p in raw.split(",") if p.strip().isdigit()]
+    if not parts:
+        await update.message.reply_text("Invalid pattern. Provide comma-separated integers, e.g., 20,20,20")
         return
-    cfg = get_chat_cfg(str(update.effective_chat.id))
+    pattern = [int(p) for p in parts]
+    cfg = ensure_chat_config(update.effective_chat.id)
     cfg["test_pattern"] = pattern
-    save_configs(configs)
-    await update.message.reply_text(f"test_pattern set to {pattern}")
+    save_chat_configs()
+    await update.message.reply_text(f"Test pattern saved: {pattern}")
 
-async def cmd_pause(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    cfg = get_chat_cfg(str(update.effective_chat.id))
-    cfg["paused"] = True
-    save_configs(configs)
-    await update.message.reply_text("Daily delivery paused.")
+async def cmd_export(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    cfg = ensure_chat_config(update.effective_chat.id)
+    await update.message.reply_text(json.dumps(cfg))
 
-async def cmd_resume(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    cfg = get_chat_cfg(str(update.effective_chat.id))
-    cfg["paused"] = False
-    save_configs(configs)
-    await update.message.reply_text("Daily delivery resumed.")
+async def cmd_import(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not context.args:
+        await update.message.reply_text("Usage: /import <json>")
+        return
+    payload = " ".join(context.args)
+    try:
+        obj = json.loads(payload)
+        if not isinstance(obj, dict):
+            raise ValueError("payload not an object")
+        chat_id = str(update.effective_chat.id)
+        _chat_configs[chat_id] = obj
+        save_chat_configs()
+        await update.message.reply_text("Config imported")
+    except Exception as e:
+        await update.message.reply_text(f"Import failed: {e}")
 
-# test runner: runs listing + charting in batches (non-blocking)
+async def cmd_allletters(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    cfg = ensure_chat_config(update.effective_chat.id)
+    letters = cfg.get("custom_letters") or "".join([chr(i) for i in range(65, 91)])
+    today = get_cycle_letter(cfg)
+    await update.message.reply_text(f"Letters: {letters}\nToday: {today}")
+
+# -------------------------
+# /test command
+# -------------------------
 async def cmd_test(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
+    chat_id = update.effective_chat.id
+    cfg = ensure_chat_config(chat_id)
     pattern = cfg.get("test_pattern", DEFAULT_TEST_PATTERN)
     if context.args:
-        try:
-            pattern = [int(x) for x in context.args[0].split(",")]
-        except Exception:
-            await update.message.reply_text("Invalid pattern argument; using saved pattern.")
-    # fetch symbols
-    symbols = fetch_bybit_instruments()
-    if not symbols:
-        try:
-            j = http_get_json("https://api.binance.com/api/v3/exchangeInfo")
-            symbols = [s["symbol"] for s in j.get("symbols", [])]
-        except Exception:
-            symbols = []
-    # filter by today's letter
-    letters = cfg.get("letters", DEFAULT_LETTERS)
-    idx = (datetime.utcnow().date().toordinal()) % len(letters)
-    today_letter = letters[idx]
-    suffix = cfg.get("suffix", DEFAULT_SUFFIX)
-    filtered = [s for s in symbols if s.upper().startswith(today_letter.upper()) and (not suffix or s.upper().endswith(suffix.upper()))]
-    await update.message.reply_text(f"Starting test run with batch pattern {pattern}...\nFound {len(filtered)} symbols for {today_letter}.")
-    # iterate batches
-    pos = 0
-    a = application
-    for batch_size in pattern:
-        if pos >= len(filtered):
-            break
-        batch = filtered[pos:pos+batch_size]
-        pos += batch_size
-        await update.message.reply_text(f"Processing batch of {len(batch)} symbols...")
-        for sym in batch:
-            try:
-                df = fetch_klines_with_fallback(sym, cfg.get("interval", DEFAULT_INTERVAL), limit=200)
-                if df.shape[0] < cfg.get("min_candles", DEFAULT_MIN_CANDLES):
-                    await update.message.reply_text(f"Failed to chart {sym}: No kline data or insufficient candles ({df.shape[0]})")
-                    continue
-                loop = asyncio.get_running_loop()
-                img = await loop.run_in_executor(None, partial(_sync_plot_bytes, df.tail(200), sym))
-                await update.message.reply_photo(photo=img, caption=f"{sym} • test")
-            except Exception as e:
-                await update.message.reply_text(f"Failed to chart {sym}: {e}")
-    await update.message.reply_text("Test run completed.")
+        raw = "".join(context.args)
+        parts = [p.strip() for p in raw.split(",") if p.strip().isdigit()]
+        if parts:
+            pattern = [int(p) for p in parts]
+            cfg["test_pattern"] = pattern
+            save_chat_configs()
+    await update.message.reply_text(f"Starting test run with batch pattern {pattern}...")
+    try:
+        bybit_all = fetch_bybit_symbols()
+        suf = (cfg.get("suffix") or "").upper()
+        candidates = [s for s in bybit_all if s.upper().endswith(suf)] if suf else bybit_all
+        letter = get_cycle_letter(cfg)
+        todays = [s for s in candidates if s.startswith(letter)]
+        if not todays:
+            await update.message.reply_text("No symbols for today")
+            return
+        idx = 0
+        loop = __import__("asyncio").get_event_loop()
+        for batch_size in pattern:
+            batch = todays[idx: idx + batch_size]
+            if not batch:
+                break
+            await update.message.reply_text(f"Processing batch of {len(batch)} symbols...")
+            for s in batch:
+                try:
+                    img = await loop.run_in_executor(None, _sync_plot_bytes_safe, s, cfg.get("interval", DEFAULT_INTERVAL), 50, 1.8)
+                    img.seek(0)
+                    await update.message.reply_photo(photo=img, caption=f"{s} {cfg.get('interval', DEFAULT_INTERVAL)}")
+                    img.close()
+                except Exception as e:
+                    logger.exception("Test chart failed for %s", s)
+                    await update.message.reply_text(f"Failed to chart {s}: {e}")
+            idx += batch_size
+            await __import__("asyncio").sleep(1)
+        await update.message.reply_text("Test run complete")
+    except Exception:
+        logger.exception("Test command failed")
+        await update.message.reply_text("Test failed (see logs)")
 
-# diag - return raw Bybit JSON if possible
+# -------------------------
+# /diag command
+# -------------------------
 async def cmd_diag(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Usage: /diag SYMBOL")
         return
     symbol = context.args[0].upper()
     try:
-        url = "https://api.bybit.com/v5/market/instruments-info"
-        j = http_get_json(url, params={"symbol": symbol})
-        await update.message.reply_text(json.dumps(j, indent=2)[:4000])
+        url = BYBIT_BASE + "/v5/market/kline"
+        params = {"category": "linear", "symbol": symbol, "interval": MAP_INTERVAL.get(DEFAULT_INTERVAL, "60"), "limit": "10"}
+        data = http_get_json(url, params=params)
+        s = json.dumps(data, indent=2)
+        if len(s) > 3800:
+            s = s[:3800] + "\n\n...[truncated]"
+        await update.message.reply_text(f"Raw Bybit kline JSON for {symbol}:\n{s}")
     except Exception as e:
-        await update.message.reply_text(f"Diag fetch failed: {e}")
+        logger.exception("Diag failed for %s", symbol)
+        await update.message.reply_text(f"Diag failed: {e}")
 
-async def cmd_export(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    await update.message.reply_text("Chat config JSON:\n" + json.dumps(cfg, indent=2))
-
-async def cmd_import(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # Expect user to paste JSON after command
-    chat_id = str(update.effective_chat.id)
-    if not context.args:
-        await update.message.reply_text("Usage: /import <json>")
-        return
-    try:
-        incoming = " ".join(context.args)
-        new_cfg = json.loads(incoming)
-        configs[chat_id] = new_cfg
-        save_configs(configs)
-        schedule_daily_for_chat(chat_id)
-        await update.message.reply_text("Imported config.")
-    except Exception as e:
-        await update.message.reply_text(f"Import failed: {e}")
-
-async def cmd_allletters(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = str(update.effective_chat.id)
-    cfg = get_chat_cfg(chat_id)
-    letters = cfg.get("letters", DEFAULT_LETTERS)
-    idx = (datetime.utcnow().date().toordinal()) % len(letters)
-    today_letter = letters[idx]
-    await update.message.reply_text(f"Letters cycle: {letters}\nToday's letter: {today_letter}")
-
-# catch-all error handler
-async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
-    log.error("Exception while handling an update: %s", context.error)
-    try:
-        tb = "".join(traceback.format_exception(None, context.error, context.error.__traceback__))
-        if isinstance(update, Update) and update.effective_chat:
-            await context.bot.send_message(chat_id=update.effective_chat.id, text=f"Error: {context.error}\n{tb[:1000]}")
-    except Exception:
-        log.exception("Failed to send error message to chat")
-
-# wire up Application
-application = Application.builder().token(TELEGRAM_TOKEN).build()
-
+# -------------------------
 # Register handlers
-application.add_handler(CommandHandler("start", cmd_start))
-application.add_handler(CommandHandler("help", cmd_help))
-application.add_handler(CommandHandler("status", cmd_status))
-application.add_handler(CommandHandler("list", cmd_list))
-application.add_handler(CommandHandler("chart", cmd_chart))
-application.add_handler(CommandHandler("analyze", cmd_analyze))
-application.add_handler(CommandHandler("price", cmd_price))
-application.add_handler(CommandHandler("setinterval", cmd_setinterval))
-application.add_handler(CommandHandler("sethour", cmd_sethour))
-application.add_handler(CommandHandler("setletter", cmd_setletter))
-application.add_handler(CommandHandler("setletters", cmd_setletters))
-application.add_handler(CommandHandler("setsuffix", cmd_setsuffix))
-application.add_handler(CommandHandler("setmin", cmd_setmin))
-application.add_handler(CommandHandler("setmax", cmd_setmax))
-application.add_handler(CommandHandler("settestpattern", cmd_settestpattern))
-application.add_handler(CommandHandler("pause", cmd_pause))
-application.add_handler(CommandHandler("resume", cmd_resume))
-application.add_handler(CommandHandler("test", cmd_test))
-application.add_handler(CommandHandler("diag", cmd_diag))
-application.add_handler(CommandHandler("export", cmd_export))
-application.add_handler(CommandHandler("import", cmd_import))
-application.add_handler(CommandHandler("allletters", cmd_allletters))
-application.add_error_handler(error_handler)
+# -------------------------
+def register_handlers(app: Application):
+    app.add_handler(CommandHandler("start", cmd_start))
+    app.add_handler(CommandHandler("help", cmd_help))
+    app.add_handler(CommandHandler("status", cmd_status))
+    app.add_handler(CommandHandler("list", cmd_list))
+    app.add_handler(CommandHandler("chart", cmd_chart))
+    app.add_handler(CommandHandler("analyze", cmd_analyze))
+    app.add_handler(CommandHandler("price", cmd_price))
+    app.add_handler(CommandHandler("setinterval", cmd_setinterval))
+    app.add_handler(CommandHandler("sethour", cmd_sethour))
+    app.add_handler(CommandHandler("setletter", cmd_setletter))
+    app.add_handler(CommandHandler("setletters", cmd_setletters))
+    app.add_handler(CommandHandler("setsuffix", cmd_setsuffix))
+    app.add_handler(CommandHandler("setmin", cmd_setmin))
+    app.add_handler(CommandHandler("setmax", cmd_setmax))
+    app.add_handler(CommandHandler("settestpattern", cmd_settestpattern))
+    app.add_handler(CommandHandler("pause", cmd_pause))
+    app.add_handler(CommandHandler("resume", cmd_resume))
+    app.add_handler(CommandHandler("test", cmd_test))
+    app.add_handler(CommandHandler("export", cmd_export))
+    app.add_handler(CommandHandler("import", cmd_import))
+    app.add_handler(CommandHandler("allletters", cmd_allletters))
+    app.add_handler(CommandHandler("diag", cmd_diag))
 
-# On startup: schedule existing chat deliveries
-def startup_schedule_all():
-    for chat_id in list(configs.keys()):
+# -------------------------
+# Scheduler thread
+# -------------------------
+def scheduler_entry(app_getter):
+    logger.info("Scheduler thread started")
+    while True:
         try:
-            schedule_daily_for_chat(chat_id)
+            app = app_getter()
+            if app is None or not hasattr(app, "bot"):
+                time.sleep(1)
+                continue
+            now = datetime.utcnow()
+            for chat_id_str, cfg in list(_chat_configs.items()):
+                try:
+                    if cfg.get("paused"):
+                        continue
+                    hour = int(cfg.get("hour", DEFAULT_HOUR_UTC))
+                    last_run = cfg.get("last_run")
+                    if last_run == now.date().isoformat():
+                        continue
+                    if now.hour == hour:
+                        bybit_all = fetch_bybit_symbols()
+                        suf = (cfg.get("suffix") or "").upper()
+                        candidates = [s for s in bybit_all if s.upper().endswith(suf)] if suf else bybit_all
+                        letter = get_cycle_letter(cfg)
+                        todays = [s for s in candidates if s.startswith(letter)]
+                        if not todays:
+                            app.bot.send_message(chat_id=int(chat_id_str), text=f"No symbols for letter {letter} today")
+                        else:
+                            text = f"Daily letter {letter}:\n" + "\n".join(todays[:200])
+                            app.bot.send_message(chat_id=int(chat_id_str), text=text)
+                            maxc = min(int(cfg.get("max_charts", 6)), MAX_CHARTS_SAFE)
+                            for s in todays[:maxc]:
+                                try:
+                                    df = get_bybit_klines(s, interval=cfg.get("interval", DEFAULT_INTERVAL), limit=DEFAULT_LIMIT)
+                                    if df.empty:
+                                        app.bot.send_message(chat_id=int(chat_id_str), text=f"No data for {s}")
+                                        continue
+                                    img = plotly_candles_with_zones_light(df, s, cfg.get("interval", DEFAULT_INTERVAL))
+                                    img.seek(0)
+                                    app.bot.send_photo(chat_id=int(chat_id_str), photo=img, caption=f"{s} {cfg.get('interval', DEFAULT_INTERVAL)}")
+                                    img.close()
+                                except Exception:
+                                    logger.exception("Daily chart failed for %s", s)
+                                    app.bot.send_message(chat_id=int(chat_id_str), text=f"Failed to chart {s}")
+                        cfg["last_run"] = now.date().isoformat()
+                        save_chat_configs()
+                except Exception:
+                    logger.exception("Scheduler per-chat error")
+            time.sleep(max(1, 60 - datetime.utcnow().second))
         except Exception:
-            log.exception("Failed to schedule for chat %s", chat_id)
+            logger.exception("Scheduler top-level error")
+            time.sleep(5)
+
+# -------------------------
+# Build application & supervisor loop
+# -------------------------
+_app: Optional[Application] = None
+
+def build_application() -> Application:
+    global _app
+    app = Application.builder().token(TELEGRAM_TOKEN).build()
+    register_handlers(app)
+    _app = app
+    return app
+
+def get_app_ref() -> Optional[Application]:
+    return _app
+
+def main_forever():
+    # start scheduler thread
+    sched_thread = threading.Thread(target=scheduler_entry, args=(get_app_ref,), daemon=True)
+    sched_thread.start()
+
+    logger.info("Starting supervisor loop (auto-restart).")
+    while True:
+        try:
+            app = build_application()
+            logger.info("Launching Application.run_polling()")
+            app.run_polling()
+            logger.info("Application.run_polling() finished normally; exiting.")
+            break
+        except KeyboardInterrupt:
+            logger.info("KeyboardInterrupt - exiting supervisor.")
+            break
+        except Exception:
+            logger.exception("Bot crashed; restarting in 5 seconds...")
+            try:
+                global _app
+                _app = None
+            except Exception:
+                pass
+            time.sleep(5)
+            continue
 
 if __name__ == "__main__":
-    log.info("Scheduler thread started")
-    startup_schedule_all()
-    # Start polling (telemetry printed in logs)
-    log.info("Launching Application.run_polling()")
-    application.run_polling()
-    log.info("Exited")
-
+    try:
+        main_forever()
+    except Exception:
+        logger.exception("Fatal error in main entrypoint")
+        sys.exit(1)
